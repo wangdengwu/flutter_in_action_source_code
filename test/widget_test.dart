@@ -6,14 +6,13 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action_source_code/chapter2/counter.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:flutter_in_action_source_code/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(CounterApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
