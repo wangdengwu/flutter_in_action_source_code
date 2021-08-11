@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="flutter.in.action.flutter_in_action_source_code">
+    package="flutter.inaction.flutter_in_action_source_code">
    <application
         android:label="Flutter实战"
         android:icon="@mipmap/ic_launcher">

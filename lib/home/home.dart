@@ -59,6 +59,22 @@ class Home extends StatelessWidget {
               color: Colors.black12,
               indent: 66,
             ),
+            ListTile(
+              leading: Icon(
+                Icons.web_asset,
+                size: 36,
+              ),
+              title: Text("资源管理"),
+              subtitle: Text("第一个Flutter应用"),
+              trailing: Text("chapter2"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.assets_2);
+              },
+            ),
+            Divider(
+              color: Colors.black12,
+              indent: 66,
+            ),
             ListTile(leading: Icon(Icons.widgets), title: Text('基础组件')),
           ],
         ),

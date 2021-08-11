@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "iconName": "first_page",
+      "title": "计数器应用示例",
+      "subTitle": "第一个Flutter应用",
+      "trailing": "chapter2",
+      "routeName": "counter_2"
+    }
+  ]
+}

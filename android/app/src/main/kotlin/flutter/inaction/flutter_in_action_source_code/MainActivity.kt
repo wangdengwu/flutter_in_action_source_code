@@ -1,4 +1,4 @@
-package flutter.in.action.flutter_in_action_source_code
+package flutter.inaction.flutter_in_action_source_code
 
 import io.flutter.embedding.android.FlutterActivity
 
