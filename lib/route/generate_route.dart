@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
+import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/route_manage.dart';
 
 class GenerateRoute {
   static const String counter_2 = 'counter_2';
   static const String route_2 = 'route_2';
+  static const String package_2 = 'package_2';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -18,6 +20,10 @@ class GenerateRoute {
       case route_2:
         return MaterialPageRoute(builder: (context) {
           return RouteManage();
+        });
+      case package_2:
+        return MaterialPageRoute(builder: (context) {
+          return PackageManage();
         });
       default:
         return MaterialPageRoute(
