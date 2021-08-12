@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class CounterApp extends StatelessWidget {
   // This widget is the root of your application.
-  final int? counter;
+  final int counter;
 
-  CounterApp({Key? key, this.counter}) : super(key: key);
+  CounterApp({Key? key, required this.counter}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,17 +41,19 @@ class CounterHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
-  final int? counter;
+  final int counter;
 
   @override
-  _CounterHomePageState createState() => _CounterHomePageState(counter);
+  _CounterHomePageState createState() => _CounterHomePageState();
 }
 
 class _CounterHomePageState extends State<CounterHomePage> {
   int _counter = 0;
 
-  _CounterHomePageState(int? _counter) {
-    this._counter = _counter ?? 0;
+  @override
+  void initState() {
+    super.initState();
+    _counter = widget.counter;
   }
 
   void _incrementCounter() {

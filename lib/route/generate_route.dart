@@ -16,7 +16,7 @@ class GenerateRoute {
       ///第一个计数器
       case counter_2:
         return MaterialPageRoute(builder: (context) {
-          dynamic count = settings.arguments;
+          dynamic count = settings.arguments ?? 0;
           return CounterApp(counter: count);
         });
       case route_2:

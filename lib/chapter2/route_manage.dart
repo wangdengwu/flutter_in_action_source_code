@@ -1,41 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action_source_code/components/toast_config.dart';
 import 'package:flutter_in_action_source_code/route/generate_route.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class RouteManage extends StatelessWidget {
   const RouteManage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var fToast = FToast();
-    fToast.init(context);
-    _showToast(String msg) {
-      Widget toast = Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25.0),
-          color: Colors.greenAccent,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.check),
-            SizedBox(
-              width: 12.0,
-            ),
-            Text(msg),
-          ],
-        ),
-      );
-
-      fToast.showToast(
-        child: toast,
-        gravity: ToastGravity.BOTTOM,
-        toastDuration: Duration(seconds: 2),
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text("路由管理"),
@@ -66,7 +38,7 @@ class RouteManage extends StatelessWidget {
                   }),
                 );
                 if (result != null) {
-                  _showToast(result);
+                  Toast.showToast(context, result);
                 }
               },
             ),
