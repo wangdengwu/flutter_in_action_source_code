@@ -5,6 +5,7 @@ import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/route_manage.dart';
 import 'package:flutter_in_action_source_code/chapter3/buttons.dart';
 import 'package:flutter_in_action_source_code/chapter3/img_icon.dart';
+import 'package:flutter_in_action_source_code/chapter3/radio_checkbox.dart';
 import 'package:flutter_in_action_source_code/chapter3/state_manage.dart';
 import 'package:flutter_in_action_source_code/chapter3/texts.dart';
 import 'package:flutter_in_action_source_code/chapter3/widget_intro.dart';
@@ -19,6 +20,7 @@ class GenerateRoute {
   static const String texts_3 = "texts_3";
   static const String buttons_3 = "buttons_3";
   static const String img_icon_3 = "img_icon_3";
+  static const String radio_checkbox_3 = "radio_checkbox_3";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -60,6 +62,10 @@ class GenerateRoute {
       case img_icon_3:
         return MaterialPageRoute(builder: (context) {
           return ImageIconWidget();
+        });
+      case radio_checkbox_3:
+        return MaterialPageRoute(builder: (context) {
+          return RadioCheckBox();
         });
       default:
         return MaterialPageRoute(
