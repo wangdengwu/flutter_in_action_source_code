@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TextWidget extends StatelessWidget {
-  const TextWidget({Key? key}) : super(key: key);
+class TextsWidget extends StatelessWidget {
+  const TextsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +11,7 @@ class TextWidget extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "Hello world " * 6, //字符串重复六次

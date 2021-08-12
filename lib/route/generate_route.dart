@@ -3,8 +3,9 @@ import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
 import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/route_manage.dart';
+import 'package:flutter_in_action_source_code/chapter3/buttons.dart';
 import 'package:flutter_in_action_source_code/chapter3/state_manage.dart';
-import 'package:flutter_in_action_source_code/chapter3/text.dart';
+import 'package:flutter_in_action_source_code/chapter3/texts.dart';
 import 'package:flutter_in_action_source_code/chapter3/widget_intro.dart';
 
 class GenerateRoute {
@@ -14,7 +15,8 @@ class GenerateRoute {
   static const String assets_2 = "assets_2";
   static const String widget_intro_3 = "widget_intro_3";
   static const String state_manage_3 = "state_manage_3";
-  static const String text_3 = "text_3";
+  static const String texts_3 = "texts_3";
+  static const String buttons_3 = "buttons_3";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -45,9 +47,13 @@ class GenerateRoute {
         return MaterialPageRoute(builder: (context) {
           return StateManage();
         });
-      case text_3:
+      case texts_3:
         return MaterialPageRoute(builder: (context) {
-          return TextWidget();
+          return TextsWidget();
+        });
+      case buttons_3:
+        return MaterialPageRoute(builder: (context) {
+          return ButtonsWidget();
         });
       default:
         return MaterialPageRoute(

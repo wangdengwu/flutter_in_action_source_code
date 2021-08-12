@@ -39,7 +39,6 @@ class _TabNavigationState extends State<TabNavigation> {
         controller: _controller,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        // 底部导航
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: '实例'),
           BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: '图标'),
