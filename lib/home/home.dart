@@ -29,7 +29,7 @@ class Home extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.manage_search,
+                Icons.first_page,
                 size: 36,
               ),
               title: Text("路由管理"),
@@ -45,7 +45,7 @@ class Home extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.backpack,
+                Icons.first_page,
                 size: 36,
               ),
               title: Text("包管理"),
@@ -61,7 +61,7 @@ class Home extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.web_asset,
+                Icons.first_page,
                 size: 36,
               ),
               title: Text("资源管理"),
@@ -90,6 +90,18 @@ class Home extends StatelessWidget {
             Divider(
               color: Colors.black12,
               indent: 66,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.widgets,
+                size: 36,
+              ),
+              title: Text("状态管理"),
+              subtitle: Text("基础组件"),
+              trailing: Text("chapter3"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.state_manage_3);
+              },
             ),
           ],
         ),
