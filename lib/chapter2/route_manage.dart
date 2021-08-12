@@ -38,7 +38,7 @@ class RouteManage extends StatelessWidget {
                   }),
                 );
                 if (result != null) {
-                  Toast.showToast(context, result);
+                  MyToast.showToast(result);
                 }
               },
             ),

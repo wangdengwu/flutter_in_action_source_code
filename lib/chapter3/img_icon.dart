@@ -94,7 +94,7 @@ class ImageAndIconRoute extends StatelessWidget {
         ),
       ].map((item) {
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Padding(
               padding: EdgeInsets.all(16.0),

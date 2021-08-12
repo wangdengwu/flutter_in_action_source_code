@@ -41,31 +41,26 @@ class ButtonsWidget extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton.icon(
-                  icon: Icon(Icons.send),
-                  label: Text("ElevatedButton"),
-                  onPressed: () {},
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                OutlinedButton.icon(
-                  icon: Icon(Icons.add),
-                  label: Text("OutlinedButton"),
-                  onPressed: () {},
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                TextButton.icon(
-                  icon: Icon(Icons.info),
-                  label: Text("TextButton"),
-                  onPressed: () {},
-                ),
-              ],
+            ElevatedButton.icon(
+              icon: Icon(Icons.send),
+              label: Text("ElevatedButton"),
+              onPressed: () {},
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            OutlinedButton.icon(
+              icon: Icon(Icons.add),
+              label: Text("OutlinedButton"),
+              onPressed: () {},
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextButton.icon(
+              icon: Icon(Icons.info),
+              label: Text("TextButton"),
+              onPressed: () {},
             ),
             SizedBox(
               height: 20,
