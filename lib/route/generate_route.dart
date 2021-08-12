@@ -4,15 +4,17 @@ import 'package:flutter_in_action_source_code/chapter2/counter.dart';
 import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/route_manage.dart';
 import 'package:flutter_in_action_source_code/chapter3/state_manage.dart';
+import 'package:flutter_in_action_source_code/chapter3/text.dart';
 import 'package:flutter_in_action_source_code/chapter3/widget_intro.dart';
 
 class GenerateRoute {
-  static const String counter_2 = 'counter_2';
-  static const String route_2 = 'route_2';
-  static const String package_2 = 'package_2';
-  static const String assets_2 = 'assets_2';
-  static const String widget_intro_3 = 'widget_intro_3';
+  static const String counter_2 = "counter_2";
+  static const String route_2 = "route_2";
+  static const String package_2 = "package_2";
+  static const String assets_2 = "assets_2";
+  static const String widget_intro_3 = "widget_intro_3";
   static const String state_manage_3 = "state_manage_3";
+  static const String text_3 = "text_3";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -42,6 +44,10 @@ class GenerateRoute {
       case state_manage_3:
         return MaterialPageRoute(builder: (context) {
           return StateManage();
+        });
+      case text_3:
+        return MaterialPageRoute(builder: (context) {
+          return TextWidget();
         });
       default:
         return MaterialPageRoute(
