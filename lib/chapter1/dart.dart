@@ -1,4 +1,4 @@
-Future<void> main() async {
+void main() {
   learnVar();
   learnDynamicObject();
   learnFinalConst();

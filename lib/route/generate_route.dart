@@ -11,6 +11,7 @@ import 'package:flutter_in_action_source_code/chapter3/radio_checkbox.dart';
 import 'package:flutter_in_action_source_code/chapter3/state_manage.dart';
 import 'package:flutter_in_action_source_code/chapter3/texts.dart';
 import 'package:flutter_in_action_source_code/chapter3/widget_intro.dart';
+import 'package:flutter_in_action_source_code/chapter4/row_column.dart';
 
 class GenerateRoute {
   static const String counter_2 = "counter_2";
@@ -25,6 +26,7 @@ class GenerateRoute {
   static const String radio_checkbox_3 = "radio_checkbox_3";
   static const String input_form_3 = "input_form_3";
   static const String progress_3 = "progress_3";
+  static const String row_column_4 = "row_column_4";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -78,6 +80,10 @@ class GenerateRoute {
       case progress_3:
         return MaterialPageRoute(builder: (context) {
           return ProgressWidget();
+        });
+      case row_column_4:
+        return MaterialPageRoute(builder: (context) {
+          return RowColumnWidget();
         });
       default:
         return MaterialPageRoute(

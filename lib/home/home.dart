@@ -199,6 +199,23 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed(GenerateRoute.progress_3);
               },
             ),
+            //row_column.dart
+            Divider(
+              color: Colors.black12,
+              indent: 66,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.layers,
+                size: 36,
+              ),
+              title: Text("线性布局（Row和Column）"),
+              subtitle: Text("布局类组件"),
+              trailing: Text("chapter4"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.row_column_4);
+              },
+            ),
           ],
         ),
       ),
