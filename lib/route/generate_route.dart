@@ -11,6 +11,7 @@ import 'package:flutter_in_action_source_code/chapter3/radio_checkbox.dart';
 import 'package:flutter_in_action_source_code/chapter3/state_manage.dart';
 import 'package:flutter_in_action_source_code/chapter3/texts.dart';
 import 'package:flutter_in_action_source_code/chapter3/widget_intro.dart';
+import 'package:flutter_in_action_source_code/chapter4/alignment.dart';
 import 'package:flutter_in_action_source_code/chapter4/flex.dart';
 import 'package:flutter_in_action_source_code/chapter4/row_column.dart';
 import 'package:flutter_in_action_source_code/chapter4/stack_positioned.dart';
@@ -33,6 +34,7 @@ class GenerateRoute {
   static const String flex_4 = "flex_4";
   static const String wrap_flow_4 = "wrap_flow_4";
   static const String stack_positioned_4 = "stack_positioned_4";
+  static const String alignment_4 = "alignment_4";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -102,6 +104,10 @@ class GenerateRoute {
       case stack_positioned_4:
         return MaterialPageRoute(builder: (context) {
           return StackPositionedWidget();
+        });
+      case alignment_4:
+        return MaterialPageRoute(builder: (context) {
+          return AlignmentWidget();
         });
       default:
         return MaterialPageRoute(

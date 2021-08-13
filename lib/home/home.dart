@@ -248,7 +248,6 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed(GenerateRoute.wrap_flow_4);
               },
             ),
-            //.dart
             Divider(
               color: Colors.black12,
               indent: 66,
@@ -263,6 +262,22 @@ class Home extends StatelessWidget {
               trailing: Text("chapter4"),
               onTap: () {
                 Navigator.of(context).pushNamed(GenerateRoute.stack_positioned_4);
+              },
+            ),
+            Divider(
+              color: Colors.black12,
+              indent: 66,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.layers,
+                size: 36,
+              ),
+              title: Text("对齐与相对定位（Align）"),
+              subtitle: Text("布局类组件"),
+              trailing: Text("chapter4"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.alignment_4);
               },
             ),
           ],
