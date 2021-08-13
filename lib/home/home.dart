@@ -280,6 +280,22 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed(GenerateRoute.alignment_4);
               },
             ),
+            Divider(
+              color: Colors.black12,
+              indent: 66,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.all_inbox,
+                size: 36,
+              ),
+              title: Text("填充（Padding）"),
+              subtitle: Text("容器类组件"),
+              trailing: Text("chapter5"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.padding_5);
+              },
+            ),
           ],
         ),
       ),

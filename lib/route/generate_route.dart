@@ -16,6 +16,7 @@ import 'package:flutter_in_action_source_code/chapter4/flex.dart';
 import 'package:flutter_in_action_source_code/chapter4/row_column.dart';
 import 'package:flutter_in_action_source_code/chapter4/stack_positioned.dart';
 import 'package:flutter_in_action_source_code/chapter4/wrap_flow.dart';
+import 'package:flutter_in_action_source_code/chapter5/padding.dart';
 
 class GenerateRoute {
   static const String counter_2 = "counter_2";
@@ -35,6 +36,7 @@ class GenerateRoute {
   static const String wrap_flow_4 = "wrap_flow_4";
   static const String stack_positioned_4 = "stack_positioned_4";
   static const String alignment_4 = "alignment_4";
+  static const String padding_5 = "padding_5";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -108,6 +110,10 @@ class GenerateRoute {
       case alignment_4:
         return MaterialPageRoute(builder: (context) {
           return AlignmentWidget();
+        });
+      case padding_5:
+        return MaterialPageRoute(builder: (context) {
+          return PaddingWidget();
         });
       default:
         return MaterialPageRoute(
