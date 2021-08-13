@@ -392,6 +392,23 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed(GenerateRoute.clip_5);
               },
             ),
+            //single_child_scrollview.dart
+            Divider(
+              color: Colors.black12,
+              indent: 66,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.pages,
+                size: 36,
+              ),
+              title: Text("SingleChildScrollView"),
+              subtitle: Text("可滚动组件"),
+              trailing: Text("chapter6"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.single_child_scrollview_6);
+              },
+            ),
           ],
         ),
       ),
