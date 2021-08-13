@@ -13,6 +13,7 @@ import 'package:flutter_in_action_source_code/chapter3/texts.dart';
 import 'package:flutter_in_action_source_code/chapter3/widget_intro.dart';
 import 'package:flutter_in_action_source_code/chapter4/flex.dart';
 import 'package:flutter_in_action_source_code/chapter4/row_column.dart';
+import 'package:flutter_in_action_source_code/chapter4/stack_positioned.dart';
 import 'package:flutter_in_action_source_code/chapter4/wrap_flow.dart';
 
 class GenerateRoute {
@@ -31,6 +32,7 @@ class GenerateRoute {
   static const String row_column_4 = "row_column_4";
   static const String flex_4 = "flex_4";
   static const String wrap_flow_4 = "wrap_flow_4";
+  static const String stack_positioned_4 = "stack_positioned_4";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -96,6 +98,10 @@ class GenerateRoute {
       case wrap_flow_4:
         return MaterialPageRoute(builder: (context) {
           return WrapFlowWidget();
+        });
+      case stack_positioned_4:
+        return MaterialPageRoute(builder: (context) {
+          return StackPositionedWidget();
         });
       default:
         return MaterialPageRoute(

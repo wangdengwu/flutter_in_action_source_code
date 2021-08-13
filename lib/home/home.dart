@@ -232,7 +232,6 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed(GenerateRoute.flex_4);
               },
             ),
-            //wrap_flow.dart
             Divider(
               color: Colors.black12,
               indent: 66,
@@ -247,6 +246,23 @@ class Home extends StatelessWidget {
               trailing: Text("chapter4"),
               onTap: () {
                 Navigator.of(context).pushNamed(GenerateRoute.wrap_flow_4);
+              },
+            ),
+            //.dart
+            Divider(
+              color: Colors.black12,
+              indent: 66,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.layers,
+                size: 36,
+              ),
+              title: Text("层叠布局 Stack、Positioned"),
+              subtitle: Text("布局类组件"),
+              trailing: Text("chapter4"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.stack_positioned_4);
               },
             ),
           ],
