@@ -232,6 +232,23 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed(GenerateRoute.flex_4);
               },
             ),
+            //wrap_flow.dart
+            Divider(
+              color: Colors.black12,
+              indent: 66,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.layers,
+                size: 36,
+              ),
+              title: Text("流式布局"),
+              subtitle: Text("布局类组件"),
+              trailing: Text("chapter4"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.wrap_flow_4);
+              },
+            ),
           ],
         ),
       ),
