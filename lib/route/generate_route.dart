@@ -16,6 +16,7 @@ import 'package:flutter_in_action_source_code/chapter4/flex.dart';
 import 'package:flutter_in_action_source_code/chapter4/row_column.dart';
 import 'package:flutter_in_action_source_code/chapter4/stack_positioned.dart';
 import 'package:flutter_in_action_source_code/chapter4/wrap_flow.dart';
+import 'package:flutter_in_action_source_code/chapter5/clip.dart';
 import 'package:flutter_in_action_source_code/chapter5/constrainedbox_sizedbox.dart';
 import 'package:flutter_in_action_source_code/chapter5/container.dart';
 import 'package:flutter_in_action_source_code/chapter5/decoratedbox.dart';
@@ -47,6 +48,7 @@ class GenerateRoute {
   static const String transform_5 = "transform_5";
   static const String container_5 = "container_5";
   static const String material_scaffold_5 = "material_scaffold_5";
+  static const String clip_5 = "";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -144,6 +146,10 @@ class GenerateRoute {
       case material_scaffold_5:
         return MaterialPageRoute(builder: (context) {
           return MaterialScaffoldWidget();
+        });
+      case clip_5:
+        return MaterialPageRoute(builder: (context) {
+          return ClipWidget();
         });
       default:
         return MaterialPageRoute(
