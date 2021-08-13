@@ -171,7 +171,14 @@
     "iconName": "pages",
     "title": "SingleChildScrollView",
     "subTitle": "可滚动组件",
-    "trailing": "chapter5",
+    "trailing": "chapter6",
     "routeName": "single_child_scrollview_6"
+  },
+  {
+    "iconName": "pages",
+    "title": "ListView",
+    "subTitle": "可滚动组件",
+    "trailing": "chapter6",
+    "routeName": "listview_6"
   }
 ]
