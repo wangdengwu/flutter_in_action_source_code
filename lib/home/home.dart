@@ -296,7 +296,6 @@ class Home extends StatelessWidget {
                 Navigator.of(context).pushNamed(GenerateRoute.padding_5);
               },
             ),
-            //.dart
             Divider(
               color: Colors.black12,
               indent: 66,
@@ -311,6 +310,22 @@ class Home extends StatelessWidget {
               trailing: Text("chapter5"),
               onTap: () {
                 Navigator.of(context).pushNamed(GenerateRoute.constrainedbox_sizebox_5);
+              },
+            ),
+            Divider(
+              color: Colors.black12,
+              indent: 66,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.all_inbox,
+                size: 36,
+              ),
+              title: Text("装饰容器DecoratedBox"),
+              subtitle: Text("容器类组件"),
+              trailing: Text("chapter5"),
+              onTap: () {
+                Navigator.of(context).pushNamed(GenerateRoute.decoratedbox_5);
               },
             ),
           ],

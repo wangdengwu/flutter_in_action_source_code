@@ -17,6 +17,7 @@ import 'package:flutter_in_action_source_code/chapter4/row_column.dart';
 import 'package:flutter_in_action_source_code/chapter4/stack_positioned.dart';
 import 'package:flutter_in_action_source_code/chapter4/wrap_flow.dart';
 import 'package:flutter_in_action_source_code/chapter5/constrainedbox_sizedbox.dart';
+import 'package:flutter_in_action_source_code/chapter5/decoratedbox.dart';
 import 'package:flutter_in_action_source_code/chapter5/padding.dart';
 
 class GenerateRoute {
@@ -39,6 +40,7 @@ class GenerateRoute {
   static const String alignment_4 = "alignment_4";
   static const String padding_5 = "padding_5";
   static const String constrainedbox_sizebox_5 = "constrainedbox_sizebox_5";
+  static const String decoratedbox_5 = "decoratedbox_5";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -120,6 +122,10 @@ class GenerateRoute {
       case constrainedbox_sizebox_5:
         return MaterialPageRoute(builder: (context) {
           return ConstrainedBoxSizedBoxWidget();
+        });
+      case decoratedbox_5:
+        return MaterialPageRoute(builder: (context) {
+          return DecoratedBoxWidget();
         });
       default:
         return MaterialPageRoute(
