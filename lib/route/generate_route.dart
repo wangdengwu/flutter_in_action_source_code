@@ -19,6 +19,7 @@ import 'package:flutter_in_action_source_code/chapter4/wrap_flow.dart';
 import 'package:flutter_in_action_source_code/chapter5/constrainedbox_sizedbox.dart';
 import 'package:flutter_in_action_source_code/chapter5/decoratedbox.dart';
 import 'package:flutter_in_action_source_code/chapter5/padding.dart';
+import 'package:flutter_in_action_source_code/chapter5/transform.dart';
 
 class GenerateRoute {
   static const String counter_2 = "counter_2";
@@ -41,6 +42,7 @@ class GenerateRoute {
   static const String padding_5 = "padding_5";
   static const String constrainedbox_sizebox_5 = "constrainedbox_sizebox_5";
   static const String decoratedbox_5 = "decoratedbox_5";
+  static const String transform_5 = "transform_5";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -126,6 +128,10 @@ class GenerateRoute {
       case decoratedbox_5:
         return MaterialPageRoute(builder: (context) {
           return DecoratedBoxWidget();
+        });
+      case transform_5:
+        return MaterialPageRoute(builder: (context) {
+          return TransformWidget();
         });
       default:
         return MaterialPageRoute(
