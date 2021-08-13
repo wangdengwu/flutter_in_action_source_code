@@ -1,11 +1,177 @@
-{
-  "items": [
-    {
-      "iconName": "first_page",
-      "title": "计数器应用示例",
-      "subTitle": "第一个Flutter应用",
-      "trailing": "chapter2",
-      "routeName": "counter_2"
-    }
-  ]
-}
+[
+  {
+    "iconName": "first_page",
+    "title": "计数器应用示例",
+    "subTitle": "第一个Flutter应用",
+    "trailing": "chapter2",
+    "routeName": "counter_2"
+  },
+  {
+    "iconName": "first_page",
+    "title": "路由管理",
+    "subTitle": "第一个Flutter应用",
+    "trailing": "chapter2",
+    "routeName": "route_2"
+  },
+  {
+    "iconName": "first_page",
+    "title": "包管理",
+    "subTitle": "第一个Flutter应用",
+    "trailing": "chapter2",
+    "routeName": "package_2"
+  },
+  {
+    "iconName": "first_page",
+    "title": "资源管理",
+    "subTitle": "第一个Flutter应用",
+    "trailing": "chapter2",
+    "routeName": "assets_2"
+  },
+  {
+    "iconName": "widgets",
+    "title": "widget简介",
+    "subTitle": "基础组件",
+    "trailing": "chapter3",
+    "routeName": "widget_intro_3"
+  },
+  {
+    "iconName": "widgets",
+    "title": "状态管理",
+    "subTitle": "基础组件",
+    "trailing": "chapter3",
+    "routeName": "state_manage_3"
+  },
+  {
+    "iconName": "widgets",
+    "title": "文本及样式",
+    "subTitle": "基础组件",
+    "trailing": "chapter3",
+    "routeName": "texts_3"
+  },
+  {
+    "iconName": "widgets",
+    "title": "按钮",
+    "subTitle": "基础组件",
+    "trailing": "chapter3",
+    "routeName": "buttons_3"
+  },
+  {
+    "iconName": "widgets",
+    "title": "图片及ICON",
+    "subTitle": "基础组件",
+    "trailing": "chapter3",
+    "routeName": "img_icon_3"
+  },
+  {
+    "iconName": "widgets",
+    "title": "单选开关和复选框",
+    "subTitle": "基础组件",
+    "trailing": "chapter3",
+    "routeName": "radio_checkbox_3"
+  },
+  {
+    "iconName": "widgets",
+    "title": "输入框及表单",
+    "subTitle": "基础组件",
+    "trailing": "chapter3",
+    "routeName": "input_form_3"
+  },
+  {
+    "iconName": "widgets",
+    "title": "进度指示器",
+    "subTitle": "基础组件",
+    "trailing": "chapter3",
+    "routeName": "progress_3"
+  },
+  {
+    "iconName": "layers",
+    "title": "线性布局（Row和Column）",
+    "subTitle": "布局类组件",
+    "trailing": "chapter4",
+    "routeName": "row_column_4"
+  },
+  {
+    "iconName": "layers",
+    "title": "弹性布局（Flex）",
+    "subTitle": "布局类组件",
+    "trailing": "chapter4",
+    "routeName": "flex_4"
+  },
+  {
+    "iconName": "layers",
+    "title": "流式布局",
+    "subTitle": "布局类组件",
+    "trailing": "chapter4",
+    "routeName": "wrap_flow_4"
+  },
+  {
+    "iconName": "layers",
+    "title": "层叠布局 Stack、Positioned",
+    "subTitle": "布局类组件",
+    "trailing": "chapter4",
+    "routeName": "stack_positioned_4"
+  },
+  {
+    "iconName": "layers",
+    "title": "对齐与相对定位（Align）",
+    "subTitle": "布局类组件",
+    "trailing": "chapter4",
+    "routeName": "alignment_4"
+  },
+  {
+    "iconName": "all_inbox",
+    "title": "填充（Padding）",
+    "subTitle": "容器类组件",
+    "trailing": "chapter5",
+    "routeName": "padding_5"
+  },
+  {
+    "iconName": "all_inbox",
+    "title": "尺寸限制类容器",
+    "subTitle": "容器类组件",
+    "trailing": "chapter5",
+    "routeName": "constrainedbox_sizebox_5"
+  },
+  {
+    "iconName": "all_inbox",
+    "title": "装饰容器DecoratedBox",
+    "subTitle": "容器类组件",
+    "trailing": "chapter5",
+    "routeName": "decoratedbox_5"
+  },
+  {
+    "iconName": "all_inbox",
+    "title": "变换（Transform）",
+    "subTitle": "容器类组件",
+    "trailing": "chapter5",
+    "routeName": "transform_5"
+  },
+  {
+    "iconName": "all_inbox",
+    "title": "Container",
+    "subTitle": "容器类组件",
+    "trailing": "chapter5",
+    "routeName": "container_5"
+  },
+  {
+    "iconName": "all_inbox",
+    "title": "脚手架",
+    "subTitle": "容器类组件",
+    "trailing": "chapter5",
+    "routeName": "material_scaffold_5"
+  },
+  {
+    "iconName": "all_inbox",
+    "title": "剪裁（Clip）",
+    "subTitle": "容器类组件",
+    "trailing": "chapter5",
+    "routeName": "clip_5"
+  },
+  {
+    "iconName": "pages",
+    "title": "SingleChildScrollView",
+    "subTitle": "可滚动组件",
+    "trailing": "chapter5",
+    "routeName": "single_child_scrollview_6"
+  }
+]

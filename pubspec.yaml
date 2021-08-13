@@ -50,6 +50,7 @@ flutter:
   assets:
     - asserts/images/avatar.jpeg
     - asserts/jsons/home.json
+    - LICENSE
 
   # To add assets to your application, add an assets section, like this:
   # assets:

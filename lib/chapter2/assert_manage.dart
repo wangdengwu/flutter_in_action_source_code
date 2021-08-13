@@ -8,13 +8,13 @@ class AssertManage extends StatefulWidget {
 }
 
 class _AssertManageState extends State<AssertManage> {
-  String _homeJson = "";
+  String _text = "";
 
   void loadHomeJson() async {
-    String text = await DefaultAssetBundle.of(context)
-        .loadString("asserts/jsons/home.json", cache: true);
+    String text =
+        await DefaultAssetBundle.of(context).loadString("LICENSE", cache: true);
     setState(() {
-      _homeJson = text;
+      _text = text;
     });
   }
 
@@ -30,10 +30,12 @@ class _AssertManageState extends State<AssertManage> {
       appBar: AppBar(
         title: Text("资源管理"),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox(
+              height: 10,
+            ),
             Image.asset(
               'asserts/images/avatar.jpeg',
               height: 88,
@@ -42,7 +44,7 @@ class _AssertManageState extends State<AssertManage> {
             SizedBox(height: 12),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: new Text(_homeJson),
+              child: Text(_text),
             ),
           ],
         ),

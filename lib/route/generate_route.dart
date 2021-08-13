@@ -26,6 +26,13 @@ import 'package:flutter_in_action_source_code/chapter5/transform.dart';
 import 'package:flutter_in_action_source_code/chapter6/single_child_scrollview.dart';
 
 class GenerateRoute {
+  static const iconMap = {
+    "first_page": Icons.first_page,
+    "widgets": Icons.widgets,
+    "layers": Icons.layers,
+    "all_inbox": Icons.all_inbox,
+    "pages": Icons.pages,
+  };
   static const String counter_2 = "counter_2";
   static const String route_2 = "route_2";
   static const String package_2 = "package_2";
