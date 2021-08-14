@@ -7,13 +7,9 @@ class MaterialScaffoldWidget extends StatefulWidget {
   _MaterialScaffoldWidgetState createState() => _MaterialScaffoldWidgetState();
 }
 
-class _MaterialScaffoldWidgetState extends State<MaterialScaffoldWidget>
-    with SingleTickerProviderStateMixin {
+class _MaterialScaffoldWidgetState extends State<MaterialScaffoldWidget> {
   int _selectedIndex = 0;
   final PageController _bottomNavController = PageController(initialPage: 0);
-  late TabController _tabController =
-      TabController(length: tabs.length, vsync: this); //需要定义一个Controller
-  List tabs = ["一一", "一二", "一三"];
 
   @override
   void initState() {
@@ -23,39 +19,12 @@ class _MaterialScaffoldWidgetState extends State<MaterialScaffoldWidget>
   @override
   void dispose() {
     _bottomNavController.dispose();
-    _tabController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        //导航栏
-        title: Text("脚手架"),
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              icon: Icon(Icons.dashboard, color: Colors.white), //自定义图标
-              onPressed: () {
-                // 打开抽屉菜单
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
-        ),
-        actions: <Widget>[
-          //导航栏右侧菜单
-          IconButton(icon: Icon(Icons.share), onPressed: () {}),
-        ],
-        bottom: TabBar(
-          //生成Tab菜单
-          controller: _tabController,
-          tabs: tabs.map((e) => Tab(text: e)).toList(),
-        ),
-      ),
-      drawer: MyDrawer(),
-      //抽屉
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         children: [
@@ -75,13 +44,6 @@ class _MaterialScaffoldWidgetState extends State<MaterialScaffoldWidget>
         currentIndex: _selectedIndex,
         fixedColor: Colors.blue,
         onTap: _onItemTapped,
-      ),
-      floatingActionButton: FloatingActionButton(
-        //悬浮按钮
-        child: Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
       ),
     );
   }
@@ -150,17 +112,87 @@ class MyDrawer extends StatelessWidget {
   }
 }
 
-class One extends StatelessWidget {
+class One extends StatefulWidget {
   const One({Key? key}) : super(key: key);
 
   @override
+  _OneState createState() => _OneState();
+}
+
+class _OneState extends State<One> with SingleTickerProviderStateMixin {
+  List tabs = ["一一", "一二", "一三"];
+
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: tabs.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          "一",
-          style: TextStyle(fontSize: 60, fontFamily: "pinyin"),
+    return Scaffold(
+      appBar: AppBar(
+        //导航栏
+        title: Text("脚手架"),
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: Icon(Icons.dashboard, color: Colors.white), //自定义图标
+              onPressed: () {
+                // 打开抽屉菜单
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
         ),
+        actions: <Widget>[
+          //导航栏右侧菜单
+          IconButton(icon: Icon(Icons.share), onPressed: () {}),
+        ],
+        bottom: TabBar(
+          //生成Tab菜单
+          controller: _tabController,
+          tabs: tabs.map((e) => Tab(text: e)).toList(),
+        ),
+      ),
+      drawer: MyDrawer(),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          Center(
+            child: Text(
+              "一一",
+              style: TextStyle(fontSize: 60, fontFamily: "pinyin"),
+            ),
+          ),
+          Center(
+            child: Text(
+              "一二",
+              style: TextStyle(fontSize: 60, fontFamily: "pinyin"),
+            ),
+          ),
+          Center(
+            child: Text(
+              "一三",
+              style: TextStyle(fontSize: 60, fontFamily: "pinyin"),
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        //悬浮按钮
+        child: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
       ),
     );
   }

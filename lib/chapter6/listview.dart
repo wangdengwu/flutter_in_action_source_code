@@ -26,7 +26,7 @@ class _ListViewWidgetState extends State<ListViewWidget> {
       ),
       body: Column(
         children: <Widget>[
-          ListTile(title: Text("商品列表")),
+          ListTile(title: Text("英语单词")),
           Expanded(
             child: ListView.separated(
               itemCount: _words.length,
@@ -69,7 +69,7 @@ class _ListViewWidgetState extends State<ListViewWidget> {
   }
 
   void _retrieveData() {
-    Future.delayed(Duration(seconds: 2)).then((e) {
+    Future.delayed(Duration(seconds: 1)).then((e) {
       setState(() {
         //重新构建列表
         _words.insertAll(
