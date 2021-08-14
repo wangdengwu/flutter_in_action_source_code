@@ -1,4 +1,4 @@
-import 'package:english_words/english_words.dart';
+import 'package:chinese_idioms/chinese_idioms.dart';
 import 'package:flutter/material.dart';
 
 class ListViewWidget extends StatefulWidget {
@@ -26,7 +26,14 @@ class _ListViewWidgetState extends State<ListViewWidget> {
       ),
       body: Column(
         children: <Widget>[
-          ListTile(title: Text("英语单词")),
+          ListTile(
+              title: Text(
+            "四字成语",
+            style: TextStyle(
+              fontSize: 22,
+              color: Colors.blue,
+            ),
+          )),
           Expanded(
             child: ListView.separated(
               itemCount: _words.length,
@@ -74,8 +81,8 @@ class _ListViewWidgetState extends State<ListViewWidget> {
         //重新构建列表
         _words.insertAll(
             _words.length - 1,
-            //每次生成20个单词
-            generateWordPairs().take(20).map((e) => e.asPascalCase).toList());
+            //每次生成20个成语
+            generateIdioms(top: 20).take(20).toList());
       });
     });
   }
