@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SingleChildScrollviewWidget extends StatelessWidget {
+class SingleChildScrollViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -9,7 +9,6 @@ class SingleChildScrollviewWidget extends StatelessWidget {
         title: Text("SingleChildScrollView"),
       ),
       body: Scrollbar(
-        // 显示进度条
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
           child: Center(

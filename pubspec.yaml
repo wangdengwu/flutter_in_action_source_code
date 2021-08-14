@@ -29,7 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.0.8
-  chinese_idioms: ^0.0.1
+  chinese_idioms: ^1.0.0
 
 
 dev_dependencies:

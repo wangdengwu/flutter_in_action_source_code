@@ -23,6 +23,7 @@ import 'package:flutter_in_action_source_code/chapter5/decoratedbox.dart';
 import 'package:flutter_in_action_source_code/chapter5/material_scaffold.dart';
 import 'package:flutter_in_action_source_code/chapter5/padding.dart';
 import 'package:flutter_in_action_source_code/chapter5/transform.dart';
+import 'package:flutter_in_action_source_code/chapter6/gridview.dart';
 import 'package:flutter_in_action_source_code/chapter6/listview.dart';
 import 'package:flutter_in_action_source_code/chapter6/single_child_scrollview.dart';
 
@@ -60,6 +61,7 @@ class GenerateRoute {
   static const String clip_5 = "clip_5";
   static const String single_child_scrollview_6 = "single_child_scrollview_6";
   static const String listview_6 = "listview_6";
+  static const String gridview_6 = "gridview_6";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -164,11 +166,15 @@ class GenerateRoute {
         });
       case single_child_scrollview_6:
         return MaterialPageRoute(builder: (context) {
-          return SingleChildScrollviewWidget();
+          return SingleChildScrollViewWidget();
         });
       case listview_6:
         return MaterialPageRoute(builder: (context) {
           return ListViewWidget();
+        });
+      case gridview_6:
+        return MaterialPageRoute(builder: (context) {
+          return GridViewWidget();
         });
       default:
         return MaterialPageRoute(
