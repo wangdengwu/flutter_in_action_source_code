@@ -34,6 +34,7 @@ import 'package:flutter_in_action_source_code/chapter7/inherited_widget.dart';
 import 'package:flutter_in_action_source_code/chapter7/provider.dart';
 import 'package:flutter_in_action_source_code/chapter7/theme.dart';
 import 'package:flutter_in_action_source_code/chapter7/willpopscope.dart';
+import 'package:flutter_in_action_source_code/chapter8/listener.dart';
 
 class GenerateRoute {
   static const iconMap = {
@@ -43,6 +44,7 @@ class GenerateRoute {
     "all_inbox": Icons.all_inbox,
     "pages": Icons.pages,
     "functions": Icons.functions,
+    "event": Icons.event,
   };
   static const String counter_2 = "counter_2";
   static const String route_2 = "route_2";
@@ -80,6 +82,7 @@ class GenerateRoute {
   static const String futurebuilder_and_streambuilder_7 =
       "futurebuilder_and_streambuilder_7";
   static const String dialog_7 = "dialog_7";
+  static const String listener_8 = "listener_8";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -225,6 +228,10 @@ class GenerateRoute {
       case dialog_7:
         return MaterialPageRoute(builder: (context) {
           return DialogWidget();
+        });
+      case listener_8:
+        return MaterialPageRoute(builder: (context) {
+          return ListenerWidget();
         });
       default:
         return MaterialPageRoute(
