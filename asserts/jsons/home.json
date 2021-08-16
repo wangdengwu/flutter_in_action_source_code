@@ -194,5 +194,12 @@
     "subTitle": "可滚动组件",
     "trailing": "chapter6",
     "routeName": "custom_scrollview_6"
+  },
+  {
+    "iconName": "pages",
+    "title": "滚动监听及控制",
+    "subTitle": "可滚动组件",
+    "trailing": "chapter6",
+    "routeName": "scroll_controller_6"
   }
 ]
