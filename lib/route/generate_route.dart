@@ -28,6 +28,7 @@ import 'package:flutter_in_action_source_code/chapter6/gridview.dart';
 import 'package:flutter_in_action_source_code/chapter6/listview.dart';
 import 'package:flutter_in_action_source_code/chapter6/scroll_controller.dart';
 import 'package:flutter_in_action_source_code/chapter6/single_child_scrollview.dart';
+import 'package:flutter_in_action_source_code/chapter7/inherited_widget.dart';
 import 'package:flutter_in_action_source_code/chapter7/willpopscope.dart';
 
 class GenerateRoute {
@@ -68,6 +69,7 @@ class GenerateRoute {
   static const String custom_scrollview_6 = "custom_scrollview_6";
   static const String scroll_controller_6 = "scroll_controller_6";
   static const String willpopscope_7 = "willpopscope_7";
+  static const String inherited_widget_7 = "inherited_widget_7";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -193,6 +195,10 @@ class GenerateRoute {
       case willpopscope_7:
         return MaterialPageRoute(builder: (context) {
           return WillPopScopeWidget();
+        });
+      case inherited_widget_7:
+        return MaterialPageRoute(builder: (context) {
+          return InheritedWidgetDemo();
         });
       default:
         return MaterialPageRoute(
