@@ -28,6 +28,7 @@ import 'package:flutter_in_action_source_code/chapter6/gridview.dart';
 import 'package:flutter_in_action_source_code/chapter6/listview.dart';
 import 'package:flutter_in_action_source_code/chapter6/scroll_controller.dart';
 import 'package:flutter_in_action_source_code/chapter6/single_child_scrollview.dart';
+import 'package:flutter_in_action_source_code/chapter7/dialog.dart';
 import 'package:flutter_in_action_source_code/chapter7/futurebuilder_and_streambuilder.dart';
 import 'package:flutter_in_action_source_code/chapter7/inherited_widget.dart';
 import 'package:flutter_in_action_source_code/chapter7/provider.dart';
@@ -78,6 +79,7 @@ class GenerateRoute {
   static const String theme_7 = "theme_7";
   static const String futurebuilder_and_streambuilder_7 =
       "futurebuilder_and_streambuilder_7";
+  static const String dialog_7 = "dialog_7";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -219,6 +221,10 @@ class GenerateRoute {
       case futurebuilder_and_streambuilder_7:
         return MaterialPageRoute(builder: (context) {
           return FutureStreamBuilderWidget();
+        });
+      case dialog_7:
+        return MaterialPageRoute(builder: (context) {
+          return DialogWidget();
         });
       default:
         return MaterialPageRoute(

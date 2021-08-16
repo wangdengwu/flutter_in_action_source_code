@@ -236,5 +236,12 @@
     "subTitle": "功能型组件",
     "trailing": "chapter7",
     "routeName": "futurebuilder_and_streambuilder_7"
+  },
+  {
+    "iconName": "functions",
+    "title": "对话框详解",
+    "subTitle": "功能型组件",
+    "trailing": "chapter7",
+    "routeName": "dialog_7"
   }
 ]
