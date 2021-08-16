@@ -44,7 +44,7 @@ class GenerateRoute {
     "all_inbox": Icons.all_inbox,
     "pages": Icons.pages,
     "functions": Icons.functions,
-    "event": Icons.event,
+    "notifications": Icons.notifications,
   };
   static const String counter_2 = "counter_2";
   static const String route_2 = "route_2";

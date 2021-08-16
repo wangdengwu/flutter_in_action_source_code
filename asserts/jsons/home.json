@@ -245,7 +245,7 @@
     "routeName": "dialog_7"
   },
   {
-    "iconName": "event",
+    "iconName": "notifications",
     "title": "原始指针事件处理",
     "subTitle": "事件处理与通知",
     "trailing": "chapter8",
