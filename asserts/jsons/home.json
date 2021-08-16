@@ -222,5 +222,12 @@
     "subTitle": "功能型组件",
     "trailing": "chapter7",
     "routeName": "provider_7"
+  },
+  {
+    "iconName": "functions",
+    "title": "颜色和主题",
+    "subTitle": "功能型组件",
+    "trailing": "chapter7",
+    "routeName": "theme_7"
   }
 ]
