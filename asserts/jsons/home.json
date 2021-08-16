@@ -229,5 +229,12 @@
     "subTitle": "功能型组件",
     "trailing": "chapter7",
     "routeName": "theme_7"
+  },
+  {
+    "iconName": "functions",
+    "title": "异步UI更新",
+    "subTitle": "功能型组件",
+    "trailing": "chapter7",
+    "routeName": "futurebuilder_and_streambuilder_7"
   }
 ]
