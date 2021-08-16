@@ -203,17 +203,24 @@
     "routeName": "scroll_controller_6"
   },
   {
-    "iconName": "pages",
+    "iconName": "functions",
     "title": "导航返回拦截",
     "subTitle": "功能型组件",
     "trailing": "chapter7",
     "routeName": "willpopscope_7"
   },
   {
-    "iconName": "pages",
+    "iconName": "functions",
     "title": "数据共享",
     "subTitle": "功能型组件",
     "trailing": "chapter7",
     "routeName": "inherited_widget_7"
+  },
+  {
+    "iconName": "functions",
+    "title": "跨组件状态共享",
+    "subTitle": "功能型组件",
+    "trailing": "chapter7",
+    "routeName": "provider_7"
   }
 ]
