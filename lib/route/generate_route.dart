@@ -36,6 +36,7 @@ import 'package:flutter_in_action_source_code/chapter7/theme.dart';
 import 'package:flutter_in_action_source_code/chapter7/willpopscope.dart';
 import 'package:flutter_in_action_source_code/chapter8/gesture.dart';
 import 'package:flutter_in_action_source_code/chapter8/listener.dart';
+import 'package:flutter_in_action_source_code/chapter8/notification.dart';
 
 class GenerateRoute {
   static const iconMap = {
@@ -85,6 +86,7 @@ class GenerateRoute {
   static const String dialog_7 = "dialog_7";
   static const String listener_8 = "listener_8";
   static const String gesture_8 = "gesture_8";
+  static const String notification_8 = "notification_8";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -238,6 +240,10 @@ class GenerateRoute {
       case gesture_8:
         return MaterialPageRoute(builder: (context) {
           return GestureWidget();
+        });
+      case notification_8:
+        return MaterialPageRoute(builder: (context) {
+          return NotificationWidget();
         });
       default:
         return MaterialPageRoute(

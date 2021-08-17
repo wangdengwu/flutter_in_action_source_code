@@ -257,5 +257,12 @@
     "subTitle": "事件处理与通知",
     "trailing": "chapter8",
     "routeName": "gesture_8"
+  },
+  {
+    "iconName": "notifications",
+    "title": "Notification",
+    "subTitle": "事件处理与通知",
+    "trailing": "chapter8",
+    "routeName": "notification_8"
   }
 ]
