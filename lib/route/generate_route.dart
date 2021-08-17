@@ -37,6 +37,7 @@ import 'package:flutter_in_action_source_code/chapter7/willpopscope.dart';
 import 'package:flutter_in_action_source_code/chapter8/gesture.dart';
 import 'package:flutter_in_action_source_code/chapter8/listener.dart';
 import 'package:flutter_in_action_source_code/chapter8/notification.dart';
+import 'package:flutter_in_action_source_code/chapter9/animated_switcher.dart';
 import 'package:flutter_in_action_source_code/chapter9/animation_structure.dart';
 import 'package:flutter_in_action_source_code/chapter9/hero.dart';
 import 'package:flutter_in_action_source_code/chapter9/route_transition.dart';
@@ -96,6 +97,7 @@ class GenerateRoute {
   static const String route_transition_9 = "route_transition_9";
   static const String hero_9 = "hero_9";
   static const String stagger_animation_9 = "stagger_animation_9";
+  static const String animated_switcher_9 = "animated_switcher_9";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -269,6 +271,10 @@ class GenerateRoute {
       case stagger_animation_9:
         return MaterialPageRoute(builder: (context) {
           return StaggerAnimationWidget();
+        });
+      case animated_switcher_9:
+        return MaterialPageRoute(builder: (context) {
+          return AnimatedSwitcherWidget();
         });
       default:
         return MaterialPageRoute(

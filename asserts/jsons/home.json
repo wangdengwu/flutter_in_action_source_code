@@ -293,5 +293,12 @@
     "subTitle": "动画",
     "trailing": "chapter9",
     "routeName": "stagger_animation_9"
+  },
+  {
+    "iconName": "animation",
+    "title": "AnimatedSwitcher",
+    "subTitle": "动画",
+    "trailing": "chapter9",
+    "routeName": "animated_switcher_9"
   }
 ]
