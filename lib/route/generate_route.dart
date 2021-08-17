@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_in_action_source_code/chapter10/combine.dart';
 import 'package:flutter_in_action_source_code/chapter10/custom_paint.dart';
+import 'package:flutter_in_action_source_code/chapter10/gradient_circular_progress.dart';
 import 'package:flutter_in_action_source_code/chapter10/turn_box.dart';
 import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
@@ -107,6 +108,8 @@ class GenerateRoute {
   static const String combine_10 = "combine_10";
   static const String turn_box_10 = "turn_box_10";
   static const String custom_paint_10 = "custom_paint_10";
+  static const String gradient_circular_progress_10 =
+      "gradient_circular_progress_10";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -300,6 +303,10 @@ class GenerateRoute {
       case custom_paint_10:
         return MaterialPageRoute(builder: (context) {
           return CustomPaintRoute();
+        });
+      case gradient_circular_progress_10:
+        return MaterialPageRoute(builder: (context) {
+          return GradientCircularProgressRoute();
         });
       default:
         return MaterialPageRoute(

@@ -328,5 +328,12 @@
     "subTitle": "自定义组件",
     "trailing": "chapter10",
     "routeName": "custom_paint_10"
+  },
+  {
+    "iconName": "settings_input_component",
+    "title": "圆形背景渐变进度条",
+    "subTitle": "自定义组件",
+    "trailing": "chapter10",
+    "routeName": "gradient_circular_progress_10"
   }
 ]
