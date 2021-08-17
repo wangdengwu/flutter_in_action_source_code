@@ -3,6 +3,7 @@ import 'package:flutter_in_action_source_code/chapter10/combine.dart';
 import 'package:flutter_in_action_source_code/chapter10/custom_paint.dart';
 import 'package:flutter_in_action_source_code/chapter10/gradient_circular_progress.dart';
 import 'package:flutter_in_action_source_code/chapter10/turn_box.dart';
+import 'package:flutter_in_action_source_code/chapter11/file_operation.dart';
 import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
 import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
@@ -59,6 +60,7 @@ class GenerateRoute {
     "notifications": Icons.notifications,
     "animation": Icons.animation,
     "settings_input_component": Icons.settings_input_component,
+    "network_check": Icons.network_check,
   };
   static const String counter_2 = "counter_2";
   static const String route_2 = "route_2";
@@ -110,6 +112,7 @@ class GenerateRoute {
   static const String custom_paint_10 = "custom_paint_10";
   static const String gradient_circular_progress_10 =
       "gradient_circular_progress_10";
+  static const String file_operation_11 = "file_operation_11";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -307,6 +310,10 @@ class GenerateRoute {
       case gradient_circular_progress_10:
         return MaterialPageRoute(builder: (context) {
           return GradientCircularProgressRoute();
+        });
+      case file_operation_11:
+        return MaterialPageRoute(builder: (context) {
+          return FileOperationRoute();
         });
       default:
         return MaterialPageRoute(

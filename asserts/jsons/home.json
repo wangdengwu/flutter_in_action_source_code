@@ -335,5 +335,12 @@
     "subTitle": "自定义组件",
     "trailing": "chapter10",
     "routeName": "gradient_circular_progress_10"
+  },
+  {
+    "iconName": "network_check",
+    "title": "文件操作",
+    "subTitle": "文件操作与网络请求",
+    "trailing": "chapter11",
+    "routeName": "file_operation_11"
   }
 ]
