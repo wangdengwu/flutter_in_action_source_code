@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_in_action_source_code/chapter10/combine.dart';
+import 'package:flutter_in_action_source_code/chapter10/turn_box.dart';
 import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
 import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
@@ -103,6 +104,7 @@ class GenerateRoute {
   static const String animated_switcher_9 = "animated_switcher_9";
   static const String animated_widgets_9 = "animated_widgets_9";
   static const String combine_10 = "combine_10";
+  static const String turn_box_10 = "turn_box_10";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -288,6 +290,10 @@ class GenerateRoute {
       case combine_10:
         return MaterialPageRoute(builder: (context) {
           return CombineWidget();
+        });
+      case turn_box_10:
+        return MaterialPageRoute(builder: (context) {
+          return TurnBoxRoute();
         });
       default:
         return MaterialPageRoute(

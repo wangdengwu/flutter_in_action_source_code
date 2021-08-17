@@ -314,5 +314,12 @@
     "subTitle": "自定义组件",
     "trailing": "chapter10",
     "routeName": "combine_10"
+  },
+  {
+    "iconName": "settings_input_component",
+    "title": "组合实例",
+    "subTitle": "自定义组件",
+    "trailing": "chapter10",
+    "routeName": "turn_box_10"
   }
 ]
