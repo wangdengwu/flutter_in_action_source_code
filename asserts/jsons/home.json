@@ -264,5 +264,12 @@
     "subTitle": "事件处理与通知",
     "trailing": "chapter8",
     "routeName": "notification_8"
+  },
+  {
+    "iconName": "animation",
+    "title": "动画基本结构及状态监听",
+    "subTitle": "动画",
+    "trailing": "chapter9",
+    "routeName": "animation_structure_9"
   }
 ]
