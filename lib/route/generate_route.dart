@@ -4,6 +4,7 @@ import 'package:flutter_in_action_source_code/chapter10/custom_paint.dart';
 import 'package:flutter_in_action_source_code/chapter10/gradient_circular_progress.dart';
 import 'package:flutter_in_action_source_code/chapter10/turn_box.dart';
 import 'package:flutter_in_action_source_code/chapter11/file_operation.dart';
+import 'package:flutter_in_action_source_code/chapter11/http.dart';
 import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
 import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
@@ -113,6 +114,7 @@ class GenerateRoute {
   static const String gradient_circular_progress_10 =
       "gradient_circular_progress_10";
   static const String file_operation_11 = "file_operation_11";
+  static const String http_11 = "http_11";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -314,6 +316,10 @@ class GenerateRoute {
       case file_operation_11:
         return MaterialPageRoute(builder: (context) {
           return FileOperationRoute();
+        });
+      case http_11:
+        return MaterialPageRoute(builder: (context) {
+          return HttpTestRoute();
         });
       default:
         return MaterialPageRoute(

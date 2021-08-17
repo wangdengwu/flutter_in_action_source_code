@@ -342,5 +342,12 @@
     "subTitle": "文件操作与网络请求",
     "trailing": "chapter11",
     "routeName": "file_operation_11"
+  },
+  {
+    "iconName": "network_check",
+    "title": "https://flutter.cn/",
+    "subTitle": "文件操作与网络请求",
+    "trailing": "chapter11",
+    "routeName": "http_11"
   }
 ]
