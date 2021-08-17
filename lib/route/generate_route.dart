@@ -34,6 +34,7 @@ import 'package:flutter_in_action_source_code/chapter7/inherited_widget.dart';
 import 'package:flutter_in_action_source_code/chapter7/provider.dart';
 import 'package:flutter_in_action_source_code/chapter7/theme.dart';
 import 'package:flutter_in_action_source_code/chapter7/willpopscope.dart';
+import 'package:flutter_in_action_source_code/chapter8/gesture.dart';
 import 'package:flutter_in_action_source_code/chapter8/listener.dart';
 
 class GenerateRoute {
@@ -83,6 +84,7 @@ class GenerateRoute {
       "futurebuilder_and_streambuilder_7";
   static const String dialog_7 = "dialog_7";
   static const String listener_8 = "listener_8";
+  static const String gesture_8 = "gesture_8";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -232,6 +234,10 @@ class GenerateRoute {
       case listener_8:
         return MaterialPageRoute(builder: (context) {
           return ListenerWidget();
+        });
+      case gesture_8:
+        return MaterialPageRoute(builder: (context) {
+          return GestureWidget();
         });
       default:
         return MaterialPageRoute(

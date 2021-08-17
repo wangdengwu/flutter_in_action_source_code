@@ -250,5 +250,12 @@
     "subTitle": "事件处理与通知",
     "trailing": "chapter8",
     "routeName": "listener_8"
+  },
+  {
+    "iconName": "notifications",
+    "title": "手势识别",
+    "subTitle": "事件处理与通知",
+    "trailing": "chapter8",
+    "routeName": "gesture_8"
   }
 ]
