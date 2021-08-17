@@ -286,5 +286,12 @@
     "trailing": "chapter9",
     "routeName": "hero_9",
     "heroTag": "hero"
+  },
+  {
+    "iconName": "animation",
+    "title": "交织动画",
+    "subTitle": "动画",
+    "trailing": "chapter9",
+    "routeName": "stagger_animation_9"
   }
 ]
