@@ -278,5 +278,13 @@
     "subTitle": "动画",
     "trailing": "chapter9",
     "routeName": "route_transition_9"
+  },
+  {
+    "iconName": "animation",
+    "title": "Hero动画",
+    "subTitle": "动画",
+    "trailing": "chapter9",
+    "routeName": "hero_9",
+    "heroTag": "hero"
   }
 ]

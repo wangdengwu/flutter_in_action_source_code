@@ -50,10 +50,18 @@ class _HomeState extends State<Home> {
               final json = _exampleList[index];
               ExampleItem exampleItem = ExampleItem.fromJson(json);
               return ListTile(
-                leading: Icon(
-                  GenerateRoute.iconMap[exampleItem.iconName],
-                  size: 36,
-                ),
+                leading: exampleItem.heroTag == null
+                    ? Icon(
+                        GenerateRoute.iconMap[exampleItem.iconName],
+                        size: 36,
+                      )
+                    : Hero(
+                        tag: exampleItem.heroTag!,
+                        child: Icon(
+                          GenerateRoute.iconMap[exampleItem.iconName],
+                          size: 36,
+                        ),
+                      ),
                 title: Text(exampleItem.title),
                 subtitle: Text(exampleItem.subTitle),
                 trailing: Text(exampleItem.trailing),
@@ -94,14 +102,16 @@ class ExampleItem {
   final String subTitle;
   final String trailing;
   final String routeName;
+  final String? heroTag;
 
-  ExampleItem(
-      this.iconName, this.title, this.subTitle, this.trailing, this.routeName);
+  ExampleItem(this.iconName, this.title, this.subTitle, this.trailing,
+      this.routeName, this.heroTag);
 
   ExampleItem.fromJson(Map<String, dynamic> json)
       : iconName = json["iconName"],
         title = json["title"],
         subTitle = json["subTitle"],
         trailing = json["trailing"],
-        routeName = json["routeName"];
+        routeName = json["routeName"],
+        heroTag = json["heroTag"];
 }
