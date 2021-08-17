@@ -300,5 +300,12 @@
     "subTitle": "动画",
     "trailing": "chapter9",
     "routeName": "animated_switcher_9"
+  },
+  {
+    "iconName": "animation",
+    "title": "动画过渡组件",
+    "subTitle": "动画",
+    "trailing": "chapter9",
+    "routeName": "animated_widgets_9"
   }
 ]
