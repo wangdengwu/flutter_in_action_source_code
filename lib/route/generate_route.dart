@@ -38,6 +38,7 @@ import 'package:flutter_in_action_source_code/chapter8/gesture.dart';
 import 'package:flutter_in_action_source_code/chapter8/listener.dart';
 import 'package:flutter_in_action_source_code/chapter8/notification.dart';
 import 'package:flutter_in_action_source_code/chapter9/animation_structure.dart';
+import 'package:flutter_in_action_source_code/chapter9/route_transition.dart';
 
 class GenerateRoute {
   static const iconMap = {
@@ -90,6 +91,7 @@ class GenerateRoute {
   static const String gesture_8 = "gesture_8";
   static const String notification_8 = "notification_8";
   static const String animation_structure_9 = "animation_structure_9";
+  static const String route_transition_9 = "route_transition_9";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -252,6 +254,10 @@ class GenerateRoute {
         return MaterialPageRoute(builder: (context) {
           return AnimationStructureWidget();
         });
+      case route_transition_9:
+        return FadeRoute(
+          child: RouteTransitionWidget(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

@@ -271,5 +271,12 @@
     "subTitle": "动画",
     "trailing": "chapter9",
     "routeName": "animation_structure_9"
+  },
+  {
+    "iconName": "animation",
+    "title": "自定义路由切换动画",
+    "subTitle": "动画",
+    "trailing": "chapter9",
+    "routeName": "route_transition_9"
   }
 ]
