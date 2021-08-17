@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action_source_code/chapter10/combine.dart';
 import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
 import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
@@ -54,6 +55,7 @@ class GenerateRoute {
     "functions": Icons.functions,
     "notifications": Icons.notifications,
     "animation": Icons.animation,
+    "settings_input_component": Icons.settings_input_component,
   };
   static const String counter_2 = "counter_2";
   static const String route_2 = "route_2";
@@ -100,6 +102,7 @@ class GenerateRoute {
   static const String stagger_animation_9 = "stagger_animation_9";
   static const String animated_switcher_9 = "animated_switcher_9";
   static const String animated_widgets_9 = "animated_widgets_9";
+  static const String combine_10 = "combine_10";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -281,6 +284,10 @@ class GenerateRoute {
       case animated_widgets_9:
         return MaterialPageRoute(builder: (context) {
           return AnimatedWidgets();
+        });
+      case combine_10:
+        return MaterialPageRoute(builder: (context) {
+          return CombineWidget();
         });
       default:
         return MaterialPageRoute(
