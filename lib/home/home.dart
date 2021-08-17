@@ -2,10 +2,37 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action_source_code/chapter8/eventbus.dart';
 import 'package:flutter_in_action_source_code/route/generate_route.dart';
 
-class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    bus.on(scroll2Top, (arg) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(.0,
+            duration: Duration(milliseconds: 200), curve: Curves.ease);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    bus.off(scroll2Top);
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +43,8 @@ class Home extends StatelessWidget {
         if (snapshot.hasData) {
           final _exampleList = json.decode(snapshot.data);
           return ListView.separated(
+            key: PageStorageKey(1),
+            controller: _scrollController,
             itemCount: _exampleList.length,
             itemBuilder: (context, index) {
               final json = _exampleList[index];

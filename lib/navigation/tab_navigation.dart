@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action_source_code/chapter8/eventbus.dart';
 import 'package:flutter_in_action_source_code/home/home.dart';
 import 'package:flutter_in_action_source_code/icon/show_icons.dart';
 import 'package:flutter_in_action_source_code/info/info.dart';
@@ -16,6 +17,8 @@ class _TabNavigationState extends State<TabNavigation> {
 
   // 禁止 PageView 滑动
   final ScrollPhysics neverScroll = const NeverScrollableScrollPhysics();
+
+  DateTime? _lastPressedAt; //上次点击时间
 
   @override
   void dispose() {
@@ -56,5 +59,17 @@ class _TabNavigationState extends State<TabNavigation> {
       _selectedIndex = index;
       _controller.jumpToPage(index);
     });
+    if (index == 0) {
+      if (_lastPressedAt == null) {
+        //两次点击间隔超过1秒则重新计时
+        _lastPressedAt = DateTime.now();
+        return;
+      }
+      if (_lastPressedAt != null &&
+          DateTime.now().difference(_lastPressedAt!) < Duration(seconds: 1)) {
+        bus.emit(scroll2Top);
+      }
+      _lastPressedAt = DateTime.now();
+    }
   }
 }
