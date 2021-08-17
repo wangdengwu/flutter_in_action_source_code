@@ -31,6 +31,7 @@ dependencies:
   fluttertoast: ^8.0.8
   chinese_idioms: ^1.0.0
   path_provider: ^2.0.2
+  dio: ^4.0.0
 
 
 dev_dependencies:
