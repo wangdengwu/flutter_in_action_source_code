@@ -321,5 +321,12 @@
     "subTitle": "自定义组件",
     "trailing": "chapter10",
     "routeName": "turn_box_10"
+  },
+  {
+    "iconName": "settings_input_component",
+    "title": "自绘组件",
+    "subTitle": "自定义组件",
+    "trailing": "chapter10",
+    "routeName": "custom_paint_10"
   }
 ]
