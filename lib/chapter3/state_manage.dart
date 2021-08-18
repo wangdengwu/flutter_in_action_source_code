@@ -10,23 +10,25 @@ class StateManage extends StatelessWidget {
       appBar: AppBar(
         title: Text("状态管理"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TapBoxA(),
-            Text("Widget管理自身状态"),
-            Divider(
-              color: Colors.black12,
-            ),
-            ParentWidgetB(),
-            Text("父Widget管理子Widget的状态"),
-            Divider(
-              color: Colors.black12,
-            ),
-            ParentWidgetC(),
-            Text("混合状态管理"),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TapBoxA(),
+              Text("Widget管理自身状态"),
+              Divider(
+                color: Colors.black12,
+              ),
+              ParentWidgetB(),
+              Text("父Widget管理子Widget的状态"),
+              Divider(
+                color: Colors.black12,
+              ),
+              ParentWidgetC(),
+              Text("混合状态管理"),
+            ],
+          ),
         ),
       ),
     );
