@@ -6,6 +6,8 @@ import 'package:flutter_in_action_source_code/chapter10/turn_box.dart';
 import 'package:flutter_in_action_source_code/chapter11/dio.dart';
 import 'package:flutter_in_action_source_code/chapter11/file_operation.dart';
 import 'package:flutter_in_action_source_code/chapter11/http.dart';
+import 'package:flutter_in_action_source_code/chapter11/image_picker.dart';
+import 'package:flutter_in_action_source_code/chapter11/webview.dart';
 import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
 import 'package:flutter_in_action_source_code/chapter2/package_manage.dart';
@@ -117,6 +119,8 @@ class GenerateRoute {
   static const String file_operation_11 = "file_operation_11";
   static const String http_11 = "http_11";
   static const String dio_11 = "dio_11";
+  static const String webview_11 = "webview_11";
+  static const String image_picker_11 = "image_picker_11";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -326,6 +330,14 @@ class GenerateRoute {
       case dio_11:
         return MaterialPageRoute(builder: (context) {
           return FutureBuilderRoute();
+        });
+      case webview_11:
+        return MaterialPageRoute(builder: (context) {
+          return WebViewExample();
+        });
+      case image_picker_11:
+        return MaterialPageRoute(builder: (context) {
+          return MyHomePage();
         });
       default:
         return MaterialPageRoute(
