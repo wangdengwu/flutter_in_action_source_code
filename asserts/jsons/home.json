@@ -377,5 +377,12 @@
     "subTitle": "文件操作与网络请求",
     "trailing": "chapter11",
     "routeName": "jpush_11"
+  },
+  {
+    "iconName": "network_check",
+    "title": "视频播放",
+    "subTitle": "文件操作与网络请求",
+    "trailing": "chapter11",
+    "routeName": "video_player_11"
   }
 ]

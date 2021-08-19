@@ -8,6 +8,7 @@ import 'package:flutter_in_action_source_code/chapter11/file_operation.dart';
 import 'package:flutter_in_action_source_code/chapter11/http.dart';
 import 'package:flutter_in_action_source_code/chapter11/image_picker.dart';
 import 'package:flutter_in_action_source_code/chapter11/jpush.dart';
+import 'package:flutter_in_action_source_code/chapter11/video_player.dart';
 import 'package:flutter_in_action_source_code/chapter11/webview.dart';
 import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
@@ -123,6 +124,7 @@ class GenerateRoute {
   static const String webview_11 = "webview_11";
   static const String image_picker_11 = "image_picker_11";
   static const String jpush_11 = "jpush_11";
+  static const String video_player_11 = "video_player_11";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -344,6 +346,10 @@ class GenerateRoute {
       case jpush_11:
         return MaterialPageRoute(builder: (context) {
           return JpushWidget();
+        });
+      case video_player_11:
+        return MaterialPageRoute(builder: (context) {
+          return VideoApp();
         });
       default:
         return MaterialPageRoute(
