@@ -12,6 +12,8 @@ PODS:
     - Flutter
     - JCore (= 2.7.1)
     - JPush (= 3.7.0)
+  - package_info_plus (0.4.5):
+    - Flutter
   - path_provider (0.0.1):
     - Flutter
   - shared_preferences (0.0.1):
@@ -27,6 +29,7 @@ DEPENDENCIES:
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - jpush_flutter (from `.symlinks/plugins/jpush_flutter/ios`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - video_player (from `.symlinks/plugins/video_player/ios`)
@@ -47,6 +50,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_picker/ios"
   jpush_flutter:
     :path: ".symlinks/plugins/jpush_flutter/ios"
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   shared_preferences:
@@ -63,6 +68,7 @@ SPEC CHECKSUMS:
   JCore: 9d5bda3a172c65bbe14f2806ab0f6246f8a06065
   JPush: 1fd7a326e7e6588eba517659ce1b79a144e54938
   jpush_flutter: d5fd523a73277ed66d453fc7ac1c981d1fa525e2
+  package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
