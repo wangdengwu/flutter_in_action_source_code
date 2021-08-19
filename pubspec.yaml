@@ -60,7 +60,6 @@ flutter:
   assets:
     - asserts/images/avatar.jpeg
     - asserts/jsons/home.json
-    - asserts/mp4/1.mp4
     - asserts/mp4/2.mp4
     - LICENSE
 
