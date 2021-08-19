@@ -37,6 +37,8 @@ dependencies:
   image_picker: ^0.8.3+2
   video_player: ^2.1.14
   flutter_cupertino_localizations: ^1.0.1
+  jpush_flutter: ^2.1.5
+  shared_preferences: ^2.0.6
 
 
 dev_dependencies:

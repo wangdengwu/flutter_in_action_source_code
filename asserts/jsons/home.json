@@ -370,5 +370,12 @@
     "subTitle": "文件操作与网络请求",
     "trailing": "chapter11",
     "routeName": "image_picker_11"
+  },
+  {
+    "iconName": "network_check",
+    "title": "推送",
+    "subTitle": "文件操作与网络请求",
+    "trailing": "chapter11",
+    "routeName": "jpush_11"
   }
 ]
