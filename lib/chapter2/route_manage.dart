@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_in_action_source_code/components/toast_config.dart';
 import 'package:flutter_in_action_source_code/route/generate_route.dart';
+import 'package:oktoast/oktoast.dart';
 
 class RouteManage extends StatelessWidget {
   const RouteManage({Key? key}) : super(key: key);
@@ -38,7 +38,7 @@ class RouteManage extends StatelessWidget {
                   }),
                 );
                 if (result != null) {
-                  MyToast.showToast(result);
+                  showToast(result);
                 }
               },
             ),

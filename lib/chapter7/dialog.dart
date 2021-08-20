@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_in_action_source_code/components/toast_config.dart';
+import 'package:oktoast/oktoast.dart';
 
 class DialogWidget extends StatefulWidget {
   const DialogWidget({Key? key}) : super(key: key);
@@ -272,9 +272,9 @@ class _DialogWidgetState extends State<DialogWidget> {
                 //弹出对话框并等待其关闭
                 bool? delete = await showDeleteConfirmDialog();
                 if (delete == null || delete == false) {
-                  MyToast.showToast("取消删除");
+                  showToast("取消删除");
                 } else {
-                  MyToast.showToast("已确认删除");
+                  showToast("已确认删除");
                   //... 删除文件
                 }
               },
@@ -284,7 +284,7 @@ class _DialogWidgetState extends State<DialogWidget> {
               onPressed: () async {
                 int? index = await changeLanguage();
                 if (index != null) {
-                  MyToast.showToast("选择了：${index == 1 ? "中文简体" : "美国英语"}");
+                  showToast("选择了：${index == 1 ? "中文简体" : "美国英语"}");
                 }
               },
               child: Text("SimpleDialog"),
@@ -293,7 +293,7 @@ class _DialogWidgetState extends State<DialogWidget> {
               onPressed: () async {
                 int? index = await showListDialog();
                 if (index != null) {
-                  MyToast.showToast("点击了：$index");
+                  showToast("点击了：$index");
                 }
               },
               child: Text("Dialog"),
@@ -323,9 +323,9 @@ class _DialogWidgetState extends State<DialogWidget> {
                     });
 
                 if (delete == null || delete == false) {
-                  MyToast.showToast("取消删除");
+                  showToast("取消删除");
                 } else {
-                  MyToast.showToast("已确认删除");
+                  showToast("已确认删除");
                   //... 删除文件
                 }
               },
@@ -336,9 +336,9 @@ class _DialogWidgetState extends State<DialogWidget> {
                 //弹出删除确认对话框，等待用户确认
                 bool? deleteTree = await showDeleteConfirmDialog3();
                 if (deleteTree == null) {
-                  MyToast.showToast("取消删除");
+                  showToast("取消删除");
                 } else {
-                  MyToast.showToast("同时删除子目录: $deleteTree");
+                  showToast("同时删除子目录: $deleteTree");
                 }
               },
               child: Text("复选框可点击"),
@@ -346,7 +346,7 @@ class _DialogWidgetState extends State<DialogWidget> {
             ElevatedButton(
               onPressed: () async {
                 int? type = await _showModalBottomSheet();
-                MyToast.showToast("$type");
+                showToast("$type");
               },
               child: Text("显示底部菜单列表"),
             ),
@@ -354,7 +354,6 @@ class _DialogWidgetState extends State<DialogWidget> {
               return ElevatedButton(
                 onPressed: () {
                   _showBottomSheet(context);
-                  // MyToast.showToast(controller);
                 },
                 child: Text("showBottomSheet"),
               );
@@ -368,7 +367,7 @@ class _DialogWidgetState extends State<DialogWidget> {
             ElevatedButton(
               onPressed: () {
                 _showDatePicker1().then(
-                  (value) => MyToast.showToast(value?.toString() ?? "没有选择日期"),
+                  (value) => showToast(value?.toString() ?? "没有选择日期"),
                 );
               },
               child: Text("安卓风格日期选择"),
@@ -376,7 +375,7 @@ class _DialogWidgetState extends State<DialogWidget> {
             ElevatedButton(
               onPressed: () {
                 _showDatePicker2().then(
-                      (value) => MyToast.showToast(value?.toString() ?? "没有选择日期"),
+                      (value) => showToast(value?.toString() ?? "没有选择日期"),
                 );
               },
               child: Text("iOS风格日期选择"),

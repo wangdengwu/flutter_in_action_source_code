@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_in_action_source_code/components/toast_config.dart';
+import 'package:oktoast/oktoast.dart';
 
 class InputForm extends StatelessWidget {
   const InputForm({Key? key}) : super(key: key);
@@ -178,7 +178,7 @@ class _LoginFormSubmitState extends State<LoginFormSubmit> {
                           bool ok = Form.of(context)?.validate() ?? false;
                           if (ok) {
                             //验证通过提交数据
-                            MyToast.showToast(
+                            showToast(
                               "用户名:${_unameController.text},密码:${_passwordController.text}",
                             );
                           }
