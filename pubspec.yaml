@@ -40,6 +40,8 @@ dependencies:
   jpush_flutter: ^2.1.5
   shared_preferences: ^2.0.6
   package_info_plus: ^1.0.5
+  scan: ^1.4.3
+  images_picker: ^1.2.4
 
 
 dev_dependencies:
