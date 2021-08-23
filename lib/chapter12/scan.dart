@@ -68,11 +68,11 @@ class _ScanWidgetState extends State<ScanWidget> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: 30),
+              padding: EdgeInsets.only(bottom: 30,left: 10,right: 10),
               child: Text(
                 '扫码结果：$qrcode',
                 style: TextStyle(color: Colors.white),
-                overflow: TextOverflow.ellipsis,
+                // overflow: TextOverflow.ellipsis,
               ),
             ),
           ),

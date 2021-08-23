@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action_source_code/iconfont/icon_font.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Info extends StatefulWidget {
   const Info({Key? key}) : super(key: key);
@@ -61,6 +63,33 @@ class _InfoState extends State<Info> {
                 Text(
                   "Version ${_packageInfo?.version}",
                   style: TextStyle(fontSize: 13),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton.icon(
+                      onPressed: () async {
+                        final url =
+                            "https://gitee.com/wangdengwu/flutter_in_action_source_code";
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        }
+                      },
+                      icon: Icon(MyIcons.gitee),
+                      label: Text("代码地址"),
+                    ),
+                    TextButton.icon(
+                      onPressed: () async {
+                        final url =
+                            "https://github.com/wangdengwu/flutter_in_action_source_code";
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        }
+                      },
+                      icon: Icon(MyIcons.github),
+                      label: Text("代码地址"),
+                    ),
+                  ],
                 ),
               ],
             ),
