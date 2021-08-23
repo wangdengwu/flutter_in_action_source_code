@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -44,60 +43,84 @@ class _ScanWidgetState extends State<ScanWidget> {
       appBar: AppBar(
         title: const Text('扫码'),
       ),
-      body: Column(
+      body: Stack(
         children: [
-          Text('系统版本: $_platformVersion\n'),
-          Wrap(
-            children: [
-              ElevatedButton(
-                child: Text("闪光灯"),
-                onPressed: () {
-                  controller.toggleTorchMode();
-                },
-              ),
-              ElevatedButton(
-                child: Text("暂停"),
-                onPressed: () {
-                  controller.pause();
-                },
-              ),
-              ElevatedButton(
-                child: Text("恢复"),
-                onPressed: () {
-                  controller.resume();
-                },
-              ),
-              ElevatedButton(
-                child: Text("选取二维码图片"),
-                onPressed: () async {
-                  List<Media>? res = await ImagesPicker.pick();
-                  if (res != null) {
-                    String? str = await Scan.parse(res[0].path);
-                    if (str != null) {
-                      setState(() {
-                        qrcode = str;
-                      });
-                    }
-                  }
-                },
-              ),
-            ],
+          ScanView(
+            controller: controller,
+            scanAreaScale: .7,
+            scanLineColor: Colors.blue.shade400,
+            onCapture: (data) {
+              setState(() {
+                qrcode = data;
+              });
+            },
           ),
-          Container(
-            width: 220,
-            height: 400,
-            child: ScanView(
-              controller: controller,
-              scanAreaScale: .7,
-              scanLineColor: Colors.green.shade400,
-              onCapture: (data) {
-                setState(() {
-                  qrcode = data;
-                });
-              },
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Text(
+                '系统版本: $_platformVersion\n',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
-          Text('扫码结果：$qrcode'),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 30),
+              child: Text(
+                '扫码结果：$qrcode',
+                style: TextStyle(color: Colors.white),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: 'light_mode',
+            onPressed: () => controller.toggleTorchMode(),
+            child: Icon(Icons.light_mode),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: FloatingActionButton(
+              heroTag: 'pause',
+              onPressed: () => controller.pause(),
+              child: Icon(Icons.pause),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: FloatingActionButton(
+              heroTag: 'refresh',
+              onPressed: () => controller.resume(),
+              child: Icon(Icons.refresh),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: FloatingActionButton(
+              heroTag: 'image',
+              onPressed: () async {
+                List<Media>? res = await ImagesPicker.pick(
+                    count: 1, language: Language.Chinese);
+                if (res != null) {
+                  String? str = await Scan.parse(res[0].path);
+                  if (str != null) {
+                    setState(() {
+                      qrcode = str;
+                    });
+                  }
+                }
+              },
+              child: Icon(Icons.image),
+            ),
+          ),
         ],
       ),
     );
