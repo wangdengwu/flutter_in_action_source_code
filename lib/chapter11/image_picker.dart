@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:images_picker/images_picker.dart';
 import 'package:video_player/video_player.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -14,9 +14,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<XFile>? _imageFileList;
+  List<String>? _imageFileList;
 
-  set _imageFile(XFile? value) {
+  set _imageFile(String? value) {
     _imageFileList = value == null ? null : [value];
   }
 
@@ -27,28 +27,13 @@ class _MyHomePageState extends State<MyHomePage> {
   VideoPlayerController? _toBeDisposed;
   String? _retrieveDataError;
 
-  final ImagePicker _picker = ImagePicker();
-  final TextEditingController maxWidthController = TextEditingController();
-  final TextEditingController maxHeightController = TextEditingController();
-  final TextEditingController qualityController = TextEditingController();
-
-  Future<void> _playVideo(XFile? file) async {
+  Future<void> _playVideo(String? file) async {
     if (file != null && mounted) {
       await _disposeVideoController();
-      late VideoPlayerController controller;
-      if (kIsWeb) {
-        controller = VideoPlayerController.network(file.path);
-      } else {
-        controller = VideoPlayerController.file(File(file.path));
-      }
+      late VideoPlayerController controller =
+          VideoPlayerController.file(File(file));
       _controller = controller;
-      // In web, most browsers won't honor a programmatic call to .play
-      // if the video has a sound track (and is not muted).
-      // Mute the video so it auto-plays in web!
-      // This is not needed if the call to .play is the result of user
-      // interaction (clicking on a "play" button, for example).
-      final double volume = kIsWeb ? 0.0 : 1.0;
-      await controller.setVolume(volume);
+      await controller.setVolume(0.0);
       await controller.initialize();
       await controller.setLooping(true);
       await controller.play();
@@ -56,52 +41,26 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  void _onImageButtonPressed(ImageSource source,
-      {BuildContext? context, bool isMultiImage = false}) async {
-    if (_controller != null) {
-      await _controller!.setVolume(0.0);
-    }
-    if (isVideo) {
-      final XFile? file = await _picker.pickVideo(
-          source: source, maxDuration: const Duration(seconds: 10));
-      await _playVideo(file);
-    } else if (isMultiImage) {
-      await _displayPickImageDialog(context!,
-          (double? maxWidth, double? maxHeight, int? quality) async {
-        try {
-          final pickedFileList = await _picker.pickMultiImage(
-            maxWidth: maxWidth,
-            maxHeight: maxHeight,
-            imageQuality: quality,
-          );
-          setState(() {
-            _imageFileList = pickedFileList;
-          });
-        } catch (e) {
-          setState(() {
-            _pickImageError = e;
-          });
-        }
-      });
+  void _onButtonPressed(PickType pickType,
+      {int count = 1, bool useCamera = false}) async {
+    List<Media>? res;
+    if (useCamera) {
+      res = await ImagesPicker.openCamera(
+          pickType: pickType, language: Language.Chinese);
     } else {
-      await _displayPickImageDialog(context!,
-          (double? maxWidth, double? maxHeight, int? quality) async {
-        try {
-          final pickedFile = await _picker.pickImage(
-            source: source,
-            maxWidth: maxWidth,
-            maxHeight: maxHeight,
-            imageQuality: quality,
-          );
-          setState(() {
-            _imageFile = pickedFile;
-          });
-        } catch (e) {
-          setState(() {
-            _pickImageError = e;
-          });
-        }
-      });
+      res = await ImagesPicker.pick(
+          count: count, pickType: pickType, language: Language.Chinese);
+    }
+    if (res != null) {
+      if (pickType == PickType.video) {
+        isVideo = true;
+        await _playVideo(res[0].path);
+      } else {
+        isVideo = false;
+        setState(() {
+          _imageFileList = res!.map((e) => e.thumbPath!).toList();
+        });
+      }
     }
   }
 
@@ -117,9 +76,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void dispose() {
     _disposeVideoController();
-    maxWidthController.dispose();
-    maxHeightController.dispose();
-    qualityController.dispose();
     super.dispose();
   }
 
@@ -138,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     if (_controller == null) {
       return const Text(
-        'You have not yet picked a video',
+        '你还没有选择任何视频',
         textAlign: TextAlign.center,
       );
     }
@@ -158,13 +114,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ListView.builder(
             key: UniqueKey(),
             itemBuilder: (context, index) {
-              // Why network for web?
-              // See https://pub.dev/packages/image_picker#getting-ready-for-the-web-platform
               return Semantics(
                 label: 'image_picker_example_picked_image',
-                child: kIsWeb
-                    ? Image.network(_imageFileList![index].path)
-                    : Image.file(File(_imageFileList![index].path)),
+                child: Image.file(File(_imageFileList![index])),
               );
             },
             itemCount: _imageFileList!.length,
@@ -172,12 +124,12 @@ class _MyHomePageState extends State<MyHomePage> {
           label: 'image_picker_example_picked_images');
     } else if (_pickImageError != null) {
       return Text(
-        'Pick image error: $_pickImageError',
+        '选择图片出错: $_pickImageError',
         textAlign: TextAlign.center,
       );
     } else {
       return const Text(
-        'You have not yet picked an image.',
+        '你还没有选取任何图片或视频',
         textAlign: TextAlign.center,
       );
     }
@@ -191,26 +143,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  Future<void> retrieveLostData() async {
-    final LostDataResponse response = await _picker.retrieveLostData();
-    if (response.isEmpty) {
-      return;
-    }
-    if (response.file != null) {
-      if (response.type == RetrieveType.video) {
-        isVideo = true;
-        await _playVideo(response.file);
-      } else {
-        isVideo = false;
-        setState(() {
-          _imageFile = response.file;
-        });
-      }
-    } else {
-      _retrieveDataError = response.exception!.code;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -218,35 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("选取图片"),
       ),
       body: Center(
-        child: !kIsWeb && defaultTargetPlatform == TargetPlatform.android
-            ? FutureBuilder<void>(
-                future: retrieveLostData(),
-                builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.none:
-                    case ConnectionState.waiting:
-                      return const Text(
-                        'You have not yet picked an image.',
-                        textAlign: TextAlign.center,
-                      );
-                    case ConnectionState.done:
-                      return _handlePreview();
-                    default:
-                      if (snapshot.hasError) {
-                        return Text(
-                          'Pick image/video error: ${snapshot.error}}',
-                          textAlign: TextAlign.center,
-                        );
-                      } else {
-                        return const Text(
-                          'You have not yet picked an image.',
-                          textAlign: TextAlign.center,
-                        );
-                      }
-                  }
-                },
-              )
-            : _handlePreview(),
+        child: _handlePreview(),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -255,8 +159,9 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'image_picker_example_from_gallery',
             child: FloatingActionButton(
               onPressed: () {
-                isVideo = false;
-                _onImageButtonPressed(ImageSource.gallery, context: context);
+                // isVideo = false;
+                // _onImageButtonPressed(ImageSource.gallery, context: context);
+                _onButtonPressed(PickType.image);
               },
               heroTag: 'image0',
               tooltip: 'Pick Image from gallery',
@@ -267,12 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.only(top: 16.0),
             child: FloatingActionButton(
               onPressed: () {
-                isVideo = false;
-                _onImageButtonPressed(
-                  ImageSource.gallery,
-                  context: context,
-                  isMultiImage: true,
-                );
+                _onButtonPressed(PickType.image, count: 3);
               },
               heroTag: 'image1',
               tooltip: 'Pick Multiple Image from gallery',
@@ -283,8 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.only(top: 16.0),
             child: FloatingActionButton(
               onPressed: () {
-                isVideo = false;
-                _onImageButtonPressed(ImageSource.camera, context: context);
+                _onButtonPressed(PickType.image, count: 3, useCamera: true);
               },
               heroTag: 'image2',
               tooltip: 'Take a Photo',
@@ -296,8 +195,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: FloatingActionButton(
               backgroundColor: Colors.red,
               onPressed: () {
-                isVideo = true;
-                _onImageButtonPressed(ImageSource.gallery);
+                _onButtonPressed(PickType.video);
               },
               heroTag: 'video0',
               tooltip: 'Pick Video from gallery',
@@ -309,8 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: FloatingActionButton(
               backgroundColor: Colors.red,
               onPressed: () {
-                isVideo = true;
-                _onImageButtonPressed(ImageSource.camera);
+                _onButtonPressed(PickType.video, useCamera: true);
               },
               heroTag: 'video1',
               tooltip: 'Take a Video',
@@ -329,62 +226,6 @@ class _MyHomePageState extends State<MyHomePage> {
       return result;
     }
     return null;
-  }
-
-  Future<void> _displayPickImageDialog(
-      BuildContext context, OnPickImageCallback onPick) async {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Add optional parameters'),
-            content: Column(
-              children: <Widget>[
-                TextField(
-                  controller: maxWidthController,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
-                  decoration:
-                      InputDecoration(hintText: "Enter maxWidth if desired"),
-                ),
-                TextField(
-                  controller: maxHeightController,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
-                  decoration:
-                      InputDecoration(hintText: "Enter maxHeight if desired"),
-                ),
-                TextField(
-                  controller: qualityController,
-                  keyboardType: TextInputType.number,
-                  decoration:
-                      InputDecoration(hintText: "Enter quality if desired"),
-                ),
-              ],
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text('CANCEL'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              TextButton(
-                  child: const Text('PICK'),
-                  onPressed: () {
-                    double? width = maxWidthController.text.isNotEmpty
-                        ? double.parse(maxWidthController.text)
-                        : null;
-                    double? height = maxHeightController.text.isNotEmpty
-                        ? double.parse(maxHeightController.text)
-                        : null;
-                    int? quality = qualityController.text.isNotEmpty
-                        ? int.parse(qualityController.text)
-                        : null;
-                    onPick(width, height, quality);
-                    Navigator.of(context).pop();
-                  }),
-            ],
-          );
-        });
   }
 }
 
