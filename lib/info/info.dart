@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-
 class Info extends StatefulWidget {
   const Info({Key? key}) : super(key: key);
 
@@ -12,13 +11,8 @@ class Info extends StatefulWidget {
 }
 
 class _InfoState extends State<Info> {
-  PackageInfo _packageInfo = PackageInfo(
-    appName: 'Unknown',
-    packageName: 'Unknown',
-    version: 'Unknown',
-    buildNumber: 'Unknown',
-    buildSignature: 'Unknown',
-  );
+  PackageInfo? _packageInfo;
+
   @override
   void initState() {
     super.initState();
@@ -41,19 +35,81 @@ class _InfoState extends State<Info> {
 
   @override
   Widget build(BuildContext context) {
+    int year = DateTime.now().year;
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          _infoTile('App name', _packageInfo.appName),
-          _infoTile('Package name', _packageInfo.packageName),
-          _infoTile('App version', _packageInfo.version),
-          _infoTile('Build number', _packageInfo.buildNumber),
-          _infoTile('Build signature', _packageInfo.buildSignature),
+          Container(
+            child: Column(
+              children: [
+                ClipRRect(
+                  child: Image.asset(
+                    "asserts/images/avatar.jpeg",
+                    width: 60,
+                    height: 60,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 26, 0, 10),
+                  child: Text(
+                    _packageInfo == null ? "" : _packageInfo!.appName,
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                ),
+                Text(
+                  "Version ${_packageInfo?.version}",
+                  style: TextStyle(fontSize: 13),
+                ),
+              ],
+            ),
+          ),
+          ListView(
+            padding: EdgeInsets.only(left: 30, right: 30),
+            shrinkWrap: true,
+            // semanticChildCount: 1,
+            children: [
+              Divider(color: Colors.black12),
+              ListTile(
+                title: Text("去评分"),
+                trailing: Icon(Icons.chevron_right),
+              ),
+              Divider(color: Colors.black12),
+              ListTile(
+                title: Text("功能介绍"),
+                trailing: Icon(Icons.chevron_right),
+              ),
+              Divider(color: Colors.black12),
+              ListTile(
+                title: Text("投诉"),
+                trailing: Icon(Icons.chevron_right),
+              ),
+              Divider(color: Colors.black12),
+              ListTile(
+                title: Text("版本更新"),
+                trailing: Icon(Icons.chevron_right),
+              ),
+              Divider(color: Colors.black12),
+            ],
+          ),
+          // Expanded(
+          //   child:
+          // ),
+          Column(
+            children: [
+              Text(
+                "xxx 版权所有",
+                style: TextStyle(color: Colors.black26, fontSize: 10),
+              ),
+              Text(
+                "Copyright @ 2013-$year xxx. All Rights Reserved.",
+                style: TextStyle(color: Colors.black26, fontSize: 10),
+              ),
+            ],
+          ),
         ],
       ),
     );
   }
 }
-
-

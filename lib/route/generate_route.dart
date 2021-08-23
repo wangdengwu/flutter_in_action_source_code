@@ -6,10 +6,10 @@ import 'package:flutter_in_action_source_code/chapter10/turn_box.dart';
 import 'package:flutter_in_action_source_code/chapter11/dio.dart';
 import 'package:flutter_in_action_source_code/chapter11/file_operation.dart';
 import 'package:flutter_in_action_source_code/chapter11/http.dart';
-import 'package:flutter_in_action_source_code/chapter11/image_picker.dart';
-import 'package:flutter_in_action_source_code/chapter11/jpush.dart';
-import 'package:flutter_in_action_source_code/chapter11/scan.dart';
-import 'package:flutter_in_action_source_code/chapter11/video_player.dart';
+import 'package:flutter_in_action_source_code/chapter12/image_picker.dart';
+import 'package:flutter_in_action_source_code/chapter12/jpush.dart';
+import 'package:flutter_in_action_source_code/chapter12/scan.dart';
+import 'package:flutter_in_action_source_code/chapter12/video_player.dart';
 import 'package:flutter_in_action_source_code/chapter11/webview.dart';
 import 'package:flutter_in_action_source_code/chapter2/assert_manage.dart';
 import 'package:flutter_in_action_source_code/chapter2/counter.dart';
@@ -68,7 +68,14 @@ class GenerateRoute {
     "animation": Icons.animation,
     "settings_input_component": Icons.settings_input_component,
     "network_check": Icons.network_check,
+    "file_copy": Icons.file_copy,
+    "open_in_browser": Icons.open_in_browser,
+    "device_hub": Icons.device_hub,
+    "image": Icons.image,
+    "play_arrow": Icons.play_arrow,
+    "camera": Icons.camera,
   };
+
   static const String counter_2 = "counter_2";
   static const String route_2 = "route_2";
   static const String package_2 = "package_2";
@@ -123,10 +130,10 @@ class GenerateRoute {
   static const String http_11 = "http_11";
   static const String dio_11 = "dio_11";
   static const String webview_11 = "webview_11";
-  static const String image_picker_11 = "image_picker_11";
-  static const String jpush_11 = "jpush_11";
-  static const String video_player_11 = "video_player_11";
-  static const String scan_11 = "scan_11";
+  static const String image_picker_12 = "image_picker_12";
+  static const String jpush_12 = "jpush_12";
+  static const String video_player_12 = "video_player_12";
+  static const String scan_12 = "scan_12";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -341,25 +348,26 @@ class GenerateRoute {
         return MaterialPageRoute(builder: (context) {
           return WebViewExample();
         });
-      case image_picker_11:
+      case image_picker_12:
         return MaterialPageRoute(builder: (context) {
           return MyHomePage();
         });
-      case jpush_11:
+      case jpush_12:
         return MaterialPageRoute(builder: (context) {
           return JpushWidget();
         });
-      case video_player_11:
+      case video_player_12:
         return MaterialPageRoute(builder: (context) {
           return VideoApp();
         });
-      case scan_11:
+      case scan_12:
         return MaterialPageRoute(builder: (context) {
           return ScanWidget();
         });
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
+            appBar: AppBar(title: Text("出错了"),),
             body: Center(
               child: Text('找不到${settings.name}对应的路由'),
             ),

@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_in_action_source_code/chapter8/eventbus.dart';
 import 'package:flutter_in_action_source_code/home/home.dart';
@@ -29,9 +30,9 @@ class _TabNavigationState extends State<TabNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter实战"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("Flutter实战"),
+      // ),
       body: PageView(
         physics: neverScroll,
         children: [
@@ -45,7 +46,17 @@ class _TabNavigationState extends State<TabNavigation> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: '实例'),
           BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: '图标'),
-          BottomNavigationBarItem(icon: Icon(Icons.info), label: '简介'),
+          BottomNavigationBarItem(
+              icon: Badge(
+                badgeContent: Text(
+                  '',
+                  style: TextStyle(fontSize: 10),
+                ),
+                badgeColor: Colors.red[500]!,
+                position: BadgePosition(top: -8, end: -2),
+                child: Icon(Icons.info),
+              ),
+              label: '简介'),
         ],
         currentIndex: _selectedIndex,
         fixedColor: Colors.blue,

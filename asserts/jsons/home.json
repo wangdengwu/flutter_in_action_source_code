@@ -337,59 +337,59 @@
     "routeName": "gradient_circular_progress_10"
   },
   {
-    "iconName": "network_check",
+    "iconName": "file_copy",
     "title": "文件操作",
     "subTitle": "文件操作与网络请求",
     "trailing": "chapter11",
     "routeName": "file_operation_11"
   },
   {
-    "iconName": "network_check",
+    "iconName": "open_in_browser",
     "title": "https://flutter.cn/",
     "subTitle": "文件操作与网络请求",
     "trailing": "chapter11",
     "routeName": "http_11"
   },
   {
-    "iconName": "network_check",
+    "iconName": "device_hub",
     "title": "Dio",
     "subTitle": "文件操作与网络请求",
     "trailing": "chapter11",
     "routeName": "dio_11"
   },
   {
-    "iconName": "network_check",
+    "iconName": "open_in_browser",
     "title": "webview",
     "subTitle": "文件操作与网络请求",
     "trailing": "chapter11",
     "routeName": "webview_11"
   },
   {
-    "iconName": "network_check",
+    "iconName": "image",
     "title": "选取图片",
-    "subTitle": "文件操作与网络请求",
-    "trailing": "chapter11",
-    "routeName": "image_picker_11"
+    "subTitle": "常用功能",
+    "trailing": "chapter12",
+    "routeName": "image_picker_12"
   },
   {
-    "iconName": "network_check",
+    "iconName": "notifications",
     "title": "推送",
-    "subTitle": "文件操作与网络请求",
-    "trailing": "chapter11",
-    "routeName": "jpush_11"
+    "subTitle": "常用功能",
+    "trailing": "chapter12",
+    "routeName": "jpush_12"
   },
   {
-    "iconName": "network_check",
+    "iconName": "play_arrow",
     "title": "视频播放",
-    "subTitle": "文件操作与网络请求",
-    "trailing": "chapter11",
-    "routeName": "video_player_11"
+    "subTitle": "常用功能",
+    "trailing": "chapter12",
+    "routeName": "video_player_12"
   },
   {
-    "iconName": "network_check",
+    "iconName": "camera",
     "title": "扫码",
-    "subTitle": "文件操作与网络请求",
-    "trailing": "chapter11",
-    "routeName": "scan_11"
+    "subTitle": "常用功能",
+    "trailing": "chapter12",
+    "routeName": "scan_12"
   }
 ]
