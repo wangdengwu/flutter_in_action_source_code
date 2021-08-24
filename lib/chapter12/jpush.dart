@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -308,18 +309,20 @@ class _NotificationFormSubmitState extends State<NotificationFormSubmit> {
                 return v != null && v.trim().length > 0 ? null : "消息内容不能为空";
               },
             ),
-            SizedBox(
-              width: 220,
-              child: SwitchListTile(
-                value: _switchSelected,
-                onChanged: (value) {
-                  setState(() {
-                    _switchSelected = value;
-                  });
-                },
-                title: Text("是否正式环境"),
-              ),
-            ),
+            Platform.isIOS
+                ? SizedBox(
+                    width: 220,
+                    child: SwitchListTile(
+                      value: _switchSelected,
+                      onChanged: (value) {
+                        setState(() {
+                          _switchSelected = value;
+                        });
+                      },
+                      title: Text("是否正式环境"),
+                    ),
+                  )
+                : Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 28.0),
               child: Row(
