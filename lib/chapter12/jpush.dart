@@ -1,9 +1,12 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_in_action_source_code/iconfont/icon_font.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
+import 'package:oktoast/oktoast.dart';
 
 class JpushWidget extends StatefulWidget {
   const JpushWidget({Key? key}) : super(key: key);
@@ -259,6 +262,7 @@ class NotificationFormSubmit extends StatefulWidget {
 class _NotificationFormSubmitState extends State<NotificationFormSubmit> {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _contentController = TextEditingController();
+  bool _switchSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -304,6 +308,18 @@ class _NotificationFormSubmitState extends State<NotificationFormSubmit> {
                 return v != null && v.trim().length > 0 ? null : "消息内容不能为空";
               },
             ),
+            SizedBox(
+              width: 220,
+              child: SwitchListTile(
+                value: _switchSelected,
+                onChanged: (value) {
+                  setState(() {
+                    _switchSelected = value;
+                  });
+                },
+                title: Text("是否正式环境"),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 28.0),
               child: Row(
@@ -328,9 +344,9 @@ class _NotificationFormSubmitState extends State<NotificationFormSubmit> {
                           bool ok = Form.of(context)?.validate() ?? false;
                           if (ok) {
                             //验证通过提交数据
-                            // 三秒后出发本地推送
+                            // 1秒后出发本地推送
                             var fireDate = DateTime.fromMillisecondsSinceEpoch(
-                                DateTime.now().millisecondsSinceEpoch + 3000);
+                                DateTime.now().millisecondsSinceEpoch + 1000);
                             var localNotification = LocalNotification(
                                 id: 234,
                                 title: _titleController.text,
@@ -366,7 +382,56 @@ class _NotificationFormSubmitState extends State<NotificationFormSubmit> {
                           bool ok = Form.of(context)?.validate() ?? false;
                           if (ok) {
                             //验证通过提交数据
-
+                            widget.jpush.getRegistrationID().then(
+                              (registrationId) async {
+                                print(registrationId);
+                                if (registrationId.isEmpty) {
+                                  showToast("registrationId 为空.");
+                                  return;
+                                }
+                                var dio = new Dio();
+                                dio.options.headers = {
+                                  "Authorization": "Basic " +
+                                      base64Encode(
+                                          "fd45bfc97bc87618c08eb7ab:396d869648d24b55aded1654"
+                                              .codeUnits),
+                                  "Content-Type": " application/json",
+                                };
+                                try {
+                                  var data = {
+                                    "platform": ["ios", "android"],
+                                    "audience": {
+                                      "registration_id": [registrationId],
+                                    },
+                                    "notification": {
+                                      "android": {
+                                        "alert": _contentController.text,
+                                        "title": _titleController.text,
+                                      },
+                                      "ios": {
+                                        "badge": "+1",
+                                        "alert": {
+                                          "title": _titleController.text,
+                                          "body": _contentController.text,
+                                        },
+                                      },
+                                    },
+                                    "options": {
+                                      "apns_production": _switchSelected,
+                                    }
+                                  };
+                                  Response resp = await dio.post(
+                                    "https://api.jpush.cn/v3/push",
+                                    data: data,
+                                  );
+                                  print(resp.data);
+                                } on DioError catch (error) {
+                                  print(error.response);
+                                }
+                              },
+                            ).catchError((error) {
+                              showToast("getRegistrationID失败: $error");
+                            });
                           }
                         },
                       );
