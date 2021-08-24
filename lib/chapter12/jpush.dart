@@ -228,28 +228,6 @@ class _JpushWidgetState extends State<JpushWidget> {
   }
 }
 
-/// 封装控件
-class CustomButton extends StatelessWidget {
-  final VoidCallback? onPressed;
-  final String? title;
-
-  const CustomButton({@required this.onPressed, @required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return new TextButton(
-      onPressed: onPressed,
-      child: new Text("$title"),
-      style: new ButtonStyle(
-        foregroundColor: MaterialStateProperty.all(Colors.white),
-        overlayColor: MaterialStateProperty.all(Color(0xff888888)),
-        backgroundColor: MaterialStateProperty.all(Color(0xff585858)),
-        padding: MaterialStateProperty.all(EdgeInsets.fromLTRB(10, 5, 10, 5)),
-      ),
-    );
-  }
-}
-
 class NotificationFormSubmit extends StatefulWidget {
   const NotificationFormSubmit({Key? key, required this.jpush})
       : super(key: key);
@@ -281,6 +259,7 @@ class _NotificationFormSubmitState extends State<NotificationFormSubmit> {
       child: Form(
         autovalidateMode: AutovalidateMode.always,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             TextFormField(
               autofocus: true,
@@ -322,7 +301,7 @@ class _NotificationFormSubmitState extends State<NotificationFormSubmit> {
                       title: Text("是否正式环境"),
                     ),
                   )
-                : Spacer(),
+                : Text(""),
             Padding(
               padding: const EdgeInsets.only(top: 28.0),
               child: Row(
